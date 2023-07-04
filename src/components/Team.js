@@ -5,6 +5,7 @@ import im1 from '@/asset/team/3L7A7445.JPG'
 import im2 from '@/asset/team/sd.JPG'
 import im3 from '@/asset/team/shukumar.jpg'
 import im4 from '@/asset/team/towhid.jpg'
+import SectionTitle from './SectionTitle';
 const Team = () => {
 
     const teamMember = [
@@ -43,7 +44,11 @@ const Team = () => {
     ]
 
     return (
-        <div>
+        <div className='section-gap'>
+            <SectionTitle
+                heading={"Our Team"}
+                subHeading={"Designers and Developers of DEV DAIRIES"}
+            ></SectionTitle>
             <section class="our-team-section">
                 <div class="container">
                     <div class="">
