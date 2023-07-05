@@ -8,3 +8,7 @@
 body {
   font-family: "Montserrat", sans-serif;
 }
+
+.section-gap{
+  @apply my-16
+}
