@@ -13,7 +13,7 @@ const Team = () => {
             name: "Shukumar Shaha",
             img: "https://i.ibb.co/9bSHKSj/shukumar.jpg",
             email: "shukumar542@gmail.com",
-            linkedIn: "",
+            linkedin: "https://www.linkedin.com/in/shukumar-ghosh-bbb641190/",
             github: "https://github.com/shukumar-542",
             portfolio: "https://profile-1cf06.web.app/"
         },
@@ -21,7 +21,7 @@ const Team = () => {
             name: "Towhidul Islam",
             img: "https://i.ibb.co/6HrqFdp/towhid.jpg",
             email: "towhidulislam2.bd@gmail.com",
-            linkedIn: "",
+            linkedin: "https://www.linkedin.com/in/towhidul-islam-2023871a4",
             portfolio: "https://towhidulislam-portfolio.web.app/",
             github: "https://github.com/towhidulislam2023"
         },
@@ -63,7 +63,7 @@ const Team = () => {
                                             <h3 class="title">{person.name}</h3>
                                             <div className='flex items-center justify-center'>
                                                 <p><GrMail className='me-2 text-[#7ab92d]' /></p>
-                                                <p class="post">{person.email}</p>
+                                                <p class="post" className='lowercase'>{person.email}</p>
                                             </div>
                                         </div>
                                         <ul class="social">
