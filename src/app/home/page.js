@@ -1,3 +1,4 @@
+import Team from "@/components/Team";
 
 const Home = () => {
     return (
