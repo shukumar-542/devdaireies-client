@@ -3,7 +3,7 @@ import React from 'react';
 
 const Navigation = () => {
     return (
-        <nav className="flex gap-10  my-2">
+        <nav className="flex flex-col md:flex-row gap-10  my-2">
         <Link className="text-xl font-semibold   hover:underline" href={"/"}>Home</Link>
         <Link className="text-xl font-semibold   hover:underline" href={"/"}>About</Link>
         <Link className="text-xl font-semibold   hover:underline" href={"/"}>Blog</Link>

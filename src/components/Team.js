@@ -44,7 +44,7 @@ const Team = () => {
     ]
 
     return (
-        <div className='section-gap'>
+        <div className='section-gap z-0'>
             <SectionTitle
                 heading={"Our Team"}
                 subHeading={"Designers and Developers of DEV DAIRIES"}
