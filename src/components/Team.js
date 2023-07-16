@@ -44,29 +44,29 @@ const Team = () => {
     ]
 
     return (
-        <div className='section-gap'>
+        <div className='section-gap z-0'>
             <SectionTitle
                 heading={"Our Team"}
                 subHeading={"Designers and Developers of DEV DAIRIES"}
             ></SectionTitle>
-            <section class="our-team-section">
-                <div class="container">
-                    <div class="">
-                        <div class="grid lg:grid-cols-4 lg:gap-6 md:grid-cols-2 md:gap-4 grid-cols-1 ">
+            <section className="our-team-section">
+                <div className="container">
+                    <div className="">
+                        <div className="grid lg:grid-cols-4 lg:gap-6 md:grid-cols-2 md:gap-4 grid-cols-1 ">
                             {
                                 teamMember.map((person, idx) => {
-                                    return (<div key={idx} class="our-team">
-                                        <div class="pic">
+                                    return (<div key={idx} className="our-team">
+                                        <div className="pic">
                                             <img src={person.img} height={40} width={40} />
                                         </div>
-                                        <div class="team-content">
-                                            <h3 class="title">{person.name}</h3>
+                                        <div className="team-content">
+                                            <h3 className="title">{person.name}</h3>
                                             <div className='flex items-center justify-center'>
                                                 <p><GrMail className='me-2 text-[#7ab92d]' /></p>
-                                                <p class="post" className='lowercase'>{person.email}</p>
+                                                <p className="post lowercase">{person.email}</p>
                                             </div>
                                         </div>
-                                        <ul class="social">
+                                        <ul className="social">
                                             <li>
                                                 <a href={person.portfolio} target="_blank"><FaLink /></a>
                                             </li>
@@ -80,26 +80,26 @@ const Team = () => {
                                     </div>)
                                 })
                             }
-                            {/* <div class="our-team">
-                                <div class="pic">
+                            {/* <div className="our-team">
+                                <div className="pic">
                                     <img src="https://i.ibb.co/8x9xK4H/team.jpg" />
                                 </div>
-                                <div class="team-content">
-                                    <h3 class="title">Team 1</h3>
-                                    <span class="post">Inhaber & Geschäftsführer</span>
+                                <div className="team-content">
+                                    <h3 className="title">Team 1</h3>
+                                    <span className="post">Inhaber & Geschäftsführer</span>
                                 </div>
-                                <ul class="social">
+                                <ul className="social">
                                     <li>
-                                        <a href="#" target="_blank" class="fa fa-facebook"></a>
+                                        <a href="#" target="_blank" className="fa fa-facebook"></a>
                                     </li>
                                     <li>
-                                        <a href="#" class="fa fa-twitter"></a>
+                                        <a href="#" className="fa fa-twitter"></a>
                                     </li>
                                     <li>
-                                        <a href="#" class="fa fa-google-plus"></a>
+                                        <a href="#" className="fa fa-google-plus"></a>
                                     </li>
                                     <li>
-                                        <a href="#" class="fa fa-linkedin"></a>
+                                        <a href="#" className="fa fa-linkedin"></a>
                                     </li>
                                 </ul>
                             </div> */}
