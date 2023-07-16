@@ -2,7 +2,7 @@ import Image from 'next/image';
 import React from 'react';
 
 const SinglePopularPosts = ({ post }) => {
-    console.log("posts", post);
+    // console.log("posts", post);
     const { author, category, date, description, image, likes, subcategory, title } = post;
     return (
         <div>
