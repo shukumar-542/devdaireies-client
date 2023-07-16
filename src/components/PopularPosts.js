@@ -14,14 +14,13 @@ const PopularPosts = () => {
     useEffect(() => {
         const fetchPopularBlogs = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/blogs/populars');
+                const response = await axios.get('http://localhost:5000/blogs/popular');
                 const fetchedData = response.data;
                 setPopularPosts(fetchedData);
             } catch (error) {
                 console.error('Error fetching popular blogs:', error);
             }
         };
-
         fetchPopularBlogs();
     }, []);
     useEffect(() => {
