@@ -23,13 +23,14 @@ const RecentSlider = () => {
         return <div>Loading...</div>; // You can show a loading indicator while fetching the data
     }
     console.log("recent posts", recentPosts);
+
     return (
-        <div>
+        <div className='z-0 pt-16'>
             <div className="grid grid-cols-12 gap-4">
                 {/* cover image */}
                 <div className="col-span-8">
                     <img src={recentPosts[0].image} className='h-full w-full relative' alt="" />
-                    <div className='absolute bottom-0 text-white p-4 text-3xl font-bold'>
+                    <div className='absolute bottom-0 text-white p-4 text-3xl font-bold mb-[70px]'>
                         <h2>{recentPosts[0].title}</h2>
                     </div>
                     {/* <Image src={recentPosts[0].image} alt='' className='h-full w-full' width={100} height={100} /> */}
