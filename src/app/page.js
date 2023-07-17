@@ -7,7 +7,7 @@ import RecentSlider from './home/RecentSlider'
 export default function Home() {
 
   return (
-    <main className="container mx-auto">
+    <main className="">
       <RecentSlider />
       <PopularPosts />
       <Team />

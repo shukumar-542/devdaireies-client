@@ -15,9 +15,10 @@ export default function RootLayout({ children }) {
     <html lang="en" data-theme="light">
       <AuthProvider >
         <body className={inter.className}>
-          <Navbar />
-          {children}
-
+          <div className=''>
+            <Navbar />
+            {children}
+          </div>
         </body>
       </AuthProvider>
     </html>
