@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import fakeUser from "../../../../public/fakeuser.png"
-import logo from "../../../../public/DD.png"
+import logo from "../../../../public/DD-f.png"
 
 const Navbar = () => {
     const navBarLinks = <>
@@ -22,7 +22,7 @@ const Navbar = () => {
     </>
 
     return (
-        <div className="w-full sticky top-0 z-10 backdrop-blur-md text-white bg-slate-900">
+        <div className="w-full sticky top-0 z-10 bg-white">
             <div className="navbar bg-opacity-25 py-2">
                 <div className="navbar-start">
                     <div className="dropdown">
@@ -35,7 +35,7 @@ const Navbar = () => {
                     </div>
                     <a className="ps-1 text-3xl font-bold">
                         {/* <img src={logo} alt="" /> */}
-                        <Image src={logo} alt="" height={170} width={200} className="h-[40px] w-[220px]" />
+                        <Image src={logo} alt="" height={170} width={200} className="h-[40px] w-[230px]" />
                     </a>
                 </div>
                 <div className="navbar-center hidden lg:flex">

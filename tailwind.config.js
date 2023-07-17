@@ -7,7 +7,7 @@ module.exports = {
   ],
   theme: {
     extend: {
-      fontFamily:{
+      fontFamily: {
         title: ['Inter', 'sans-serif']
       },
       backgroundImage: {
@@ -16,15 +16,9 @@ module.exports = {
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
       colors: {
-        bodyLight: '#FFFFFF',
-        bodyDark: '#0E1527',
-        primaryDark: '#38BDF8',
-        primaryLight: '#4DBF7B',
-        textLightGray: '#E2E8F0',
-        textDarkGray: '#94A3B8',
-        textDarkBlue: '#0F172A',
-        textLightBlue: '#334155',
-        hoverColor: '#0284C7',
+        purple: '#5D38E0',
+        deepOrange: '#F5680E',
+        lightOrange: '#F59600'
       },
     },
   },
