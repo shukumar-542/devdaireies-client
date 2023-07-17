@@ -83,7 +83,7 @@ const PopularPosts = () => {
     // console.log("popular popular Posts Of JS", popularPostsOfJS);
 
     return (
-        <div>
+        <div className='my-container'>
             <div>
                 <SectionTitle
                     heading={"Popular Posts"}

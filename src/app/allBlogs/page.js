@@ -1,6 +1,7 @@
 'use client'
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import { FaSearch } from 'react-icons/fa';
 
 const page = () => {
     const [recentPosts, setRecentPosts] = useState([]);
@@ -18,24 +19,31 @@ const page = () => {
         fetchRecentBlogs();
     }, []);
 
-  
+
     // console.log(recentPosts);
     return (
         <div>
             <div class="main">
+
+                {/* search bar */}
+                <div className='my-5'>
+                    <div className='flex justify-center'>
+                        <div className="form-control">
+                            <div className="input-group">
+                                <input type="text" placeholder="Search by name" className="input input-bordered" />
+                                <button className="btn btn-square ">
+                                   <FaSearch></FaSearch> 
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
                 <ul class="cards">
                     {
                         recentPosts.map((recentPost, index) => (
-                            <li class="cards_item" key={index}>
-                                <div class="card">
-                                    <div class="card_image"><img src={recentPost.image} /></div>
-                                    <div class="card_content">
-                                        <h2 class="card_title">Card Grid Layout</h2>
-                                        <p class="card_text">Demo of pixel perfect pure CSS simple responsive card grid layout</p>
-                                        <button class="btn card_btn">Read More</button>
-                                    </div>
-                                </div>
-                            </li>
+                          <div key={index}>hello</div>
                         ))
                     }
                 </ul>
