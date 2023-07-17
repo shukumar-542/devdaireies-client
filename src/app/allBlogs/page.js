@@ -2,7 +2,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 
-const Page = () => {
+const page = () => {
     const [recentPosts, setRecentPosts] = useState([]);
 
     useEffect(() => {
@@ -44,4 +44,4 @@ const Page = () => {
     );
 };
 
-export default Page;
+export default page;

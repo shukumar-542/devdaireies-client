@@ -1,13 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
 import fakeUser from "../../../../public/fakeuser.png"
+import logo from "../../../../public/DD.png"
 
 const Navbar = () => {
     const navBarLinks = <>
         <li> <Link href="/">Home</Link> </li>
         <li tabIndex={0}>
             <details>
-                <summary>JavaScript</summary>
+                <summary >JavaScript</summary>
                 <ul className="bg-slate-900 text-white bg-opacity-50">
                     <li><Link href="/" className="hover:font-semibold hover:bg-slate-900 hover:text-white">JavaScript</Link> </li>
                     <li><Link href="/" className="hover:font-semibold hover:bg-slate-900 hover:text-white">React JS</Link> </li>
@@ -21,18 +22,21 @@ const Navbar = () => {
     </>
 
     return (
-        <div className="z-20 fixed w-full px-6">
-            <div className="navbar bg-base-100">
+        <div className="w-full sticky top-0 z-10 backdrop-blur-md text-white bg-slate-900">
+            <div className="navbar bg-opacity-25 py-2">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                         </label>
-                        <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box text-xl w-52">
+                        <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box text-xl">
                             {navBarLinks}
                         </ul>
                     </div>
-                    <a className="ps-1 text-3xl font-bold">DevDiaries</a>
+                    <a className="ps-1 text-3xl font-bold">
+                        {/* <img src={logo} alt="" /> */}
+                        <Image src={logo} alt="" height={170} width={200} className="h-[40px] w-[220px]" />
+                    </a>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1 text-lg font-semibold">
@@ -40,20 +44,9 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <div className='flex justify-center my-4'>
-                        <div className="form-control">
-                            <div className="input-group">
-                                <input type="text" placeholder="Search by name" className="input input-bordered" />
-                                <button className="btn btn-square bg-orange">
-                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
                     <div className="avatar online ms-4">
                         <div className="w-16 rounded-full">
                             <Image alt="" src={fakeUser} height={60} width={60} />
-                            {/* <img className="h-6" src="https://cdn-icons-png.flaticon.com/512/164/164600.png" /> */}
                         </div>
                     </div>
                 </div>
