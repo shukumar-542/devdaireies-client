@@ -20,6 +20,7 @@ const Navbar = () => {
         </li>
         <li> <Link href="/allBlogs">All Blogs</Link></li>
     </>
+
     return (
         <div className="w-full sticky top-0 z-10 backdrop-blur-md text-white bg-slate-900">
             <div className="navbar bg-opacity-25 py-2">
