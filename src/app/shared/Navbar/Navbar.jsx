@@ -19,6 +19,7 @@ const Navbar = () => {
         </li>
         <li> <Link href="/allBlogs">All Blogs</Link></li>
     </>
+
     return (
         <div className="z-20 fixed w-full px-6">
             <div className="navbar bg-base-100">
