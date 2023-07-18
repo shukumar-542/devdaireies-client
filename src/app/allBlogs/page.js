@@ -30,7 +30,7 @@ const page = () => {
                 setAllBlogs(data);
             });
     }
-    // console.log(allBlogs);
+    console.log(allBlogs);
 
     return (
         <>
@@ -47,7 +47,7 @@ const page = () => {
             </div>
             {/* Blogs */}
             {
-                allBlogs.length ? <div className='grid grid-cols-3 gap-6 my-container'>
+                allBlogs.length > 0 ? <div className='grid grid-cols-3 gap-6 my-container'>
                 {
                     allBlogs.map((blog, index) => (
                         <div className="" key={index}>
