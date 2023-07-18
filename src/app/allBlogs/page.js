@@ -34,12 +34,12 @@ const page = () => {
                                 <div className="">
                                     <Image src={blog.image} alt='' className='rounded-md h-[220px] mb-2' height={300} width={400} />
                                 </div>
-                                <div className="">
-                                    <div className='flex justify-between'>
+                                <div className="space-y-3">
+                                    <div className='flex justify-between mt-3'>
                                         <p className='border border-purple rounded-md py-1 px-3 hover:bg-purple hover:text-white transition ease-in-out duration-300 text-lightOrange font-semibold'>{blog.category}</p>
                                         <p className='border border-purple rounded-md py-1 px-3 hover:bg-purple hover:text-white transition ease-in-out duration-300 text-lightOrange font-semibold'>{blog.subcategory}</p>
                                     </div>
-                                    <h2 className="font-bold text-purple text-2xl my-3">{blog.title}</h2>
+                                    <h2 className="font-bold text-purple text-2xl">{blog.title}</h2>
                                     <div className='flex justify-between items-center'>
                                         <p className='flex items-center text-lg cursor-pointer font-semibold  transition-transform transform-gpu hover:-translate-y-1'><FaThumbsUp className='text-deepOrange me-1' /> {blog.likes}</p>
                                         <button class="px-3 py-1 bg-gradient-to-r from-purple to-deepOrange text-white font-semibold rounded-md transition-transform transform-gpu hover:-translate-y-1 hover:shadow-lg">

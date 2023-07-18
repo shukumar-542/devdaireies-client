@@ -9,7 +9,7 @@ const Navbar = () => {
         <li tabIndex={0}>
             <details>
                 <summary >JavaScript</summary>
-                <ul className="bg-slate-900 text-white bg-opacity-50">
+                <ul className="bg-slate-900 text-white bg-opacity-50 rounded-none mt[-50px]">
                     <li><Link href="/" className="hover:font-semibold hover:bg-slate-900 hover:text-white">JavaScript</Link> </li>
                     <li><Link href="/" className="hover:font-semibold hover:bg-slate-900 hover:text-white">React JS</Link> </li>
                     <li><Link href="/" className="hover:font-semibold hover:bg-slate-900 hover:text-white">Express JS</Link> </li>
