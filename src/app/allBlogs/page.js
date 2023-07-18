@@ -43,7 +43,7 @@ const page = () => {
                 <ul class="cards">
                     {
                         recentPosts.map((recentPost, index) => (
-                          <div key={index}>helloooooo</div>
+                            <div key={index}> heool</div>
                         ))
                     }
                 </ul>
