@@ -29,9 +29,11 @@ const RecentSlider = () => {
             <div className="grid grid-cols-12 gap-4">
                 {/* cover image */}
                 <div className="col-span-8">
-                    <img src={recentPosts[0].image} className='h-full w-full relative' alt="" />
-                    <div className='absolute bottom-28 text-white p-4 text-3xl font-bold'>
-                        <h2>{recentPosts[0].title}</h2>
+                    <div className='relative h-full'>
+                        <img src={recentPosts[0].image} className='h-full w-full' alt="" />
+                        <div className='absolute bottom-0 text-white p-4 text-3xl font-bold'>
+                            <h2>{recentPosts[0].title}</h2>
+                        </div>
                     </div>
                 </div>
                 <div className="col-span-4">
