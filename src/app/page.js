@@ -3,7 +3,7 @@ import Footer from './shared/Footer/Footer'
 import Team from '@/components/Team'
 import PopularPosts from '@/components/PopularPosts'
 import RecentSlider from './home/RecentSlider'
-import Timeline from './home/Timeline'
+import PostTimeline from './home/PostTimeline'
 
 export default function Home() {
 
@@ -11,7 +11,7 @@ export default function Home() {
     <main className="my-container">
       <RecentSlider />
       <PopularPosts />
-      <Timeline />
+      <PostTimeline />
       <Team />
       <Footer></Footer>
 
