@@ -25,7 +25,7 @@ const RecentSlider = () => {
     console.log("recent posts", recentPosts);
 
     return (
-        <div className='z-0'>
+        <div className='z-0 my-container'>
             <div className="grid grid-cols-12 gap-4">
                 {/* cover image */}
                 <div className="col-span-8">
