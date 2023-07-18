@@ -11,7 +11,7 @@ export default function Home() {
     <main className="my-container">
       <RecentSlider />
       <PopularPosts />
-      {/* <Timeline /> */}
+      <Timeline />
       <Team />
       <Footer></Footer>
 
