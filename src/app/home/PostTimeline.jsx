@@ -1,6 +1,8 @@
-
+"use client"
+import Lottie from 'react-lottie-player'
 import SectionTitle from "@/components/SectionTitle";
 import { FaUserCheck } from "react-icons/fa";
+import lottieJson from '../../asset/newScene.json'
 const PostTimeline = () => {
     return (
         <>
@@ -21,8 +23,14 @@ const PostTimeline = () => {
                     <li className="step step-warning">You can't delete your published blogs</li>
                 </ul>
                 {/* Image */}
-                <div>
-
+                <div className='flex justify-center items-center'>
+                    <Lottie
+                        loop
+                        animationData={lottieJson}
+                        play
+                        // style={{ width: 150, height: 150 }}
+                        className='h-500px'
+                    />
                 </div>
             </div>
         </>
