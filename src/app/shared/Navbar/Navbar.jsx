@@ -6,10 +6,11 @@ import logo from "../../../../public/DD-f.png"
 const Navbar = () => {
     const navBarLinks = <>
         <li> <Link href="/">Home</Link> </li>
+        <li> <Link href="/allBlogs">All Blogs</Link></li>
         <li tabIndex={0}>
             <details>
                 <summary >JavaScript</summary>
-                <ul className="bg-slate-900 text-white bg-opacity-50 rounded-none mt[-50px]">
+                <ul className="bg-slate-900 text-white bg-opacity-50 rounded-none">
                     <li><Link href="/" className="hover:font-semibold hover:bg-slate-900 hover:text-white">JavaScript</Link> </li>
                     <li><Link href="/" className="hover:font-semibold hover:bg-slate-900 hover:text-white">React JS</Link> </li>
                     <li><Link href="/" className="hover:font-semibold hover:bg-slate-900 hover:text-white">Express JS</Link> </li>
@@ -18,7 +19,7 @@ const Navbar = () => {
                 </ul>
             </details>
         </li>
-        <li> <Link href="/allBlogs">All Blogs</Link></li>
+
     </>
 
     return (
