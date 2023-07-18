@@ -8,7 +8,7 @@ import Timeline from './home/Timeline'
 export default function Home() {
 
   return (
-    <main className="">
+    <main className="my-container">
       <RecentSlider />
       <PopularPosts />
       {/* <Timeline /> */}
