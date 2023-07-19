@@ -6,7 +6,7 @@ const page = async ({ params }) => {
     const url = `http://localhost:5000/blogs/${id}`;
     const res = await fetch(url);
     const data = await res.json();
-    console.log(data);
+    // console.log(data);
     const { author, category, date, description, image, likes, subcategory, title } = data;
     const tag = data.tags.join(', ');
 
@@ -14,7 +14,9 @@ const page = async ({ params }) => {
         <>
             <main className="section-gap">
                 <div className="flex">
+                    {/* Image Section */}
                     <Image src={image} className="h-[300px] w-[500px]" alt="" height={300} width={450} />
+                    {/* Content Section */}
                     <div className="ms-8 text-lg space-y-3">
                         <p>{date}</p>
                         <div className="flex items-center space-x-3 text-purple">
@@ -31,8 +33,15 @@ const page = async ({ params }) => {
                         <p className="flex text-xl font-semibold items-center"><FaThumbsUp className="text-deepOrange me-3" /> {likes}</p>
                         <p className="text-lg font-bold">Author: <span className="italic">{author}</span></p>
                         <p>Tags: {tag}</p>
+
+                        {/* Social Share */}
+                        <div>
+
+                        </div>
+
                     </div>
                 </div>
+                {/* Comment Section */}
                 <div>
                     <h3 className="text-xl font-bold text-deepOrange my-4">All comments:</h3>
                     <div>

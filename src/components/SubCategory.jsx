@@ -1,8 +1,9 @@
 import Image from "next/image";
+import Link from "next/link";
 import { FaThumbsUp, FaChevronCircleRight } from "react-icons/fa";
 
 const SubCategory = ({ post }) => {
-    const { author, category, date, description, image, likes, subcategory, title } = post;
+    const { author, category, date, description, image, likes, subcategory, title, _id } = post;
     return (
         <div>
             <div className="flex">
@@ -11,9 +12,12 @@ const SubCategory = ({ post }) => {
                     <p className="">{date}</p>
                     <h3 className="text-3xl font-bold">{title}</h3>
                     <h4 className="text-lg">{description.slice(0, 120)}...
-                        <button class="px-3 py-1 ms-2 bg-gradient-to-r from-purple to-deepOrange text-white bg-clip-text text-transparent font-semibold rounded-md transition-transform transform-gpu hover:translate-x-2 hover:shadow-lg">
-                            Read More
-                        </button>
+                        <Link href={`allBlogs/${_id}`}>
+                            <button class="px-3 py-1 ms-2 bg-gradient-to-r from-purple to-deepOrange text-white bg-clip-text text-transparent font-semibold rounded-md transition-transform transform-gpu hover:translate-x-2 hover:shadow-lg">
+                                Read More
+                            </button>
+                        </Link>
+
                     </h4>
                     <p className="flex text-xl font-semibold items-center"><FaThumbsUp className="text-deepOrange me-3" /> {likes}</p>
                     <p className="text-lg font-bold">Author: <span className="italic">{author}</span></p>

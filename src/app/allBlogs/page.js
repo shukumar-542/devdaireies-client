@@ -6,6 +6,7 @@ import { FaSearch } from 'react-icons/fa';
 import Zoom from 'react-reveal/Zoom';
 import { FaThumbsUp } from "react-icons/fa";
 import { FiSearch } from "react-icons/fi";
+import Link from 'next/link';
 const page = () => {
     const [allBlogs, setAllBlogs] = useState([]);
     const [searchText, setSearchText] = useState("");
@@ -61,8 +62,8 @@ const page = () => {
                 <div className=" w-1/2 mx-auto">
                     <div className=" border rounded-xl overflow-hidden flex items-center bg-white gap-1">
                         <FiSearch className='ps-2 text-3xl'></FiSearch>
-                        <input type="text" className="w-full focus:outline-none p-2" placeholder="Type To Search…" onChange={(e) => handleChange(e.target.value)}  />
-                       
+                        <input type="text" className="w-full focus:outline-none p-2" placeholder="Type To Search…" onChange={(e) => handleChange(e.target.value)} />
+
                     </div>
                 </div>
                 <div className='bg-white  shadow-lg rounded-lg w-1/2 absolute z-10 mt-44  mx-auto max-h-28 dropdown-content overflow-y-auto'>
@@ -93,9 +94,12 @@ const page = () => {
                                             <h2 className="font-bold  text-2xl">{blog.title}</h2>
                                             <div className='flex justify-between items-center'>
                                                 <p className='flex items-center text-lg cursor-pointer font-semibold  transition-transform transform-gpu hover:-translate-y-1'><FaThumbsUp className='text-deepOrange me-1' /> {blog.likes}</p>
-                                                <button class="px-3 py-1 bg-gradient-to-r from-purple to-deepOrange text-white font-semibold rounded-md transition-transform transform-gpu hover:-translate-y-1 hover:shadow-lg">
-                                                    Read More
-                                                </button>
+                                                <Link href={`allBlogs/${blog._id}`}>
+                                                    <button class="px-3 py-1 bg-gradient-to-r from-purple to-deepOrange text-white font-semibold rounded-md transition-transform transform-gpu hover:-translate-y-1 hover:shadow-lg">
+                                                        Read More
+                                                    </button>
+                                                </Link>
+
                                             </div>
                                         </div>
                                     </div>
