@@ -2,6 +2,7 @@ import Image from 'next/image';
 import logo from '../../../public/DD-f.png'
 import Link from 'next/link';
 import { FaFacebook, FaWhatsappSquare, FaTelegram, FaInstagramSquare } from "react-icons/fa";
+import { BsFillTelephoneFill, BsFillEnvelopeOpenFill, BsWhatsapp } from "react-icons/bs";
 const Footer = () => {
     return (
         <footer className='bg-purple m-0'>
@@ -15,9 +16,9 @@ const Footer = () => {
                     <div>
                         <h3 className='text-lg font-semibold uppercase mb-4'>Contact Information</h3>
                         <p>Bangladesh</p>
-                        <p>devdiaries@gmail.com</p>
-                        <p>+880-171111111</p>
-                        <p>+880-190000000</p>
+                        <p className='flex items-center'><BsFillEnvelopeOpenFill className='me-2 text-deepOrange' /> devdiaries@gmail.com</p>
+                        <p className='flex items-center'><BsFillTelephoneFill className='me-2 text-deepOrange' /> +880-171111111</p>
+                        <p className='flex items-center'><BsWhatsapp className='me-2 text-deepOrange' /> +880-190000000</p>
                     </div>
                     {/* Links */}
                     <div>
