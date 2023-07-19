@@ -9,7 +9,7 @@ const page = () => {
     useEffect(() => {
         const fetchPopularBlogs = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/blogs/javascript');
+                const response = await axios.get('http://localhost:5000/subcategory/mongodb');
                 const fetchedData = response.data;
                 setAllPosts(fetchedData);
             } catch (error) {

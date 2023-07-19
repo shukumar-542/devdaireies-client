@@ -11,10 +11,10 @@ const Navbar = () => {
             <details>
                 <summary >JavaScript</summary>
                 <ul className="bg-slate-900 text-white bg-opacity-50 rounded-none">
-                    <li><Link href="/javascript" className="hover:font-semibold hover:bg-slate-900 hover:text-white">JavaScript</Link> </li>
+                    <li><Link href="/javaScript" className="hover:font-semibold hover:bg-slate-900 hover:text-white">JavaScript</Link> </li>
                     <li><Link href="/reactjs" className="hover:font-semibold hover:bg-slate-900 hover:text-white">React JS</Link> </li>
                     <li><Link href="/nodejs" className="hover:font-semibold hover:bg-slate-900 hover:text-white">Node JS</Link> </li>
-                    <li><Link href="/" className="hover:font-semibold hover:bg-slate-900 hover:text-white">Express JS</Link> </li>
+                    <li><Link href="/expressjs" className="hover:font-semibold hover:bg-slate-900 hover:text-white">Express JS</Link> </li>
                     <li><Link href="/mongodb" className="hover:font-semibold hover:bg-slate-900 hover:text-white">MongoDB</Link> </li>
                 </ul>
             </details>
