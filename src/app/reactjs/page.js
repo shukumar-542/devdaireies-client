@@ -24,8 +24,8 @@ const page = () => {
         <>
             <div className="section-gap">
                 <SectionTitle
-                    heading={"Popular Posts"}
-                    subHeading={"most liked posts"}
+                    heading={"React JS"}
+                    subHeading={"Everything about React JS"}
                 ></SectionTitle>
                 <div className='grid grid-cols-1 gap-6'>
                     {

@@ -23,8 +23,8 @@ const page = () => {
         <>
             <div className="section-gap">
                 <SectionTitle
-                    heading={"Popular Posts"}
-                    subHeading={"most liked posts"}
+                    heading={"JavaScript"}
+                    subHeading={"All JavaScript Blogs"}
                 ></SectionTitle>
                 <div className='grid grid-cols-1 gap-6'>
                     {
