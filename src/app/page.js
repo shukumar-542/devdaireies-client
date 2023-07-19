@@ -11,7 +11,7 @@ export default function Home() {
       <RecentSlider />
       <PopularPosts />
       <PostTimeline />
-      <Footer></Footer>
+      {/* <Footer></Footer> */}
 
     </main>
   )
