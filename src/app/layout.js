@@ -2,6 +2,7 @@ import AuthProvider from '@/Context/AuthProvider'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import Navbar from './shared/Navbar/Navbar'
+import Footer from './shared/Footer'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -12,7 +13,7 @@ export const metadata = {
 
 
 export default function RootLayout({ children }) {
- 
+
   return (
     <html lang="en" data-theme="light">
 
@@ -21,6 +22,7 @@ export default function RootLayout({ children }) {
           <div className=''>
             <Navbar />
             {children}
+            <Footer />
           </div>
         </body>
       </AuthProvider>
