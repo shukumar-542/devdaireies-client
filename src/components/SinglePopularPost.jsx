@@ -1,9 +1,10 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 
 const SinglePopularPosts = ({ post }) => {
-    // console.log("posts", post);
-    const { author, category, date, description, image, likes, subcategory, title } = post;
+    console.log("posts", post);
+    const { author, category, date, description, image, likes, subcategory, title, _id } = post;
     return (
         <div>
             <div className='shadow-xl rounded-xl hover:shadow-2xl p-4'>
@@ -15,7 +16,9 @@ const SinglePopularPosts = ({ post }) => {
                 <div className=''>
                     <h2 className='text-[22px] font-bold my-3'>{title.slice(0, 50)}...</h2>
                     <p className=''>{description.slice(0, 70)}...</p>
-                    <button className='btn'>read more</button>
+                    <Link href={`allBlogs/${_id}`}>
+                        <button className='btn'>read more</button>
+                    </Link>
                     <div className='divider p-0 mb-2'></div>
                     <div className='flex justify-between '>
                         <p>{author}</p>

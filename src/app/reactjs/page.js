@@ -1,15 +1,16 @@
 'use client'
-import SectionTitle from '@/components/SectionTitle';
-import SubCategory from '@/components/SubCategory';
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import SectionTitle from "@/components/SectionTitle";
+import SinglePopularPosts from "@/components/SinglePopularPost";
+import SubCategory from "@/components/SubCategory";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 const page = () => {
     const [allPosts, setAllPosts] = useState([]);
     useEffect(() => {
         const fetchPopularBlogs = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/blogs/javascript');
+                const response = await axios.get('http://localhost:5000/subcategory/react');
                 const fetchedData = response.data;
                 setAllPosts(fetchedData);
             } catch (error) {
@@ -23,8 +24,8 @@ const page = () => {
         <>
             <div className="section-gap">
                 <SectionTitle
-                    heading={"JavaScript"}
-                    subHeading={"All JavaScript Blogs"}
+                    heading={"React JS"}
+                    subHeading={"Everything about React JS"}
                 ></SectionTitle>
                 <div className='grid grid-cols-1 gap-6'>
                     {
@@ -41,3 +42,4 @@ const page = () => {
 };
 
 export default page;
+

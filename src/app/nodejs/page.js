@@ -9,7 +9,7 @@ const page = () => {
     useEffect(() => {
         const fetchPopularBlogs = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/blogs/javascript');
+                const response = await axios.get('http://localhost:5000/subcategory/node');
                 const fetchedData = response.data;
                 setAllPosts(fetchedData);
             } catch (error) {
@@ -23,8 +23,8 @@ const page = () => {
         <>
             <div className="section-gap">
                 <SectionTitle
-                    heading={"JavaScript"}
-                    subHeading={"All JavaScript Blogs"}
+                    heading={"Node JS"}
+                    subHeading={"Everything about Node JS"}
                 ></SectionTitle>
                 <div className='grid grid-cols-1 gap-6'>
                     {
