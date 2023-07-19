@@ -17,5 +17,5 @@ body {
 }
 
 .my-container{
-  @apply px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl  lg:py-5
+  @apply px-4 py-0 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl  lg:py-5
 }
