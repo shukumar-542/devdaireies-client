@@ -6,9 +6,9 @@ const AboutUs = () => {
             <div className="grid grid-cols-3 gap-4">
                 <div className='col-span-2 space-y-3'>
                     <div>
-                        <p className='font-semibold text-lg'>Welcome to </p>
-                        <p className='text-6xl font-bold'>DevDiaries</p>
-                        <p className='text-2xl font-bold'>Your Coding and Programming Language Blogging Haven!</p>
+                        <p className='font-semibold text-lg '>Welcome to </p>
+                        <p className='text-6xl font-bold text-deepOrange'><span className='text-purple'>Dev</span>Diaries</p>
+                        <p className='text-2xl font-bold bg-gradient-to-r from-purple to-deepOrange text-white p-1'>Your Coding and Programming Language Blogging Haven!</p>
                     </div>
                     <p>At DevDiaries, we provide a dedicated platform for all coding enthusiasts, developers, and tech aficionados to chronicle their coding journey. Explore a treasure trove of captivating content covering JavaScript, Python, PHP, Go, and beyond. Whether you're a seasoned pro or just stepping into the coding realm, you'll find a supportive community eager to engage and learn from your experiences.</p>
                     <p>Share your coding insights, projects, tutorials, and stories. Connect with like-minded individuals, exchange knowledge, and fuel your passion for coding. DevDiaries is your go-to hub for expanding your coding skills, building connections, and leaving your mark in the coding world. Embrace the coding adventure and start penning your DevDiaries today!</p>
