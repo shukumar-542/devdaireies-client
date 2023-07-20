@@ -50,7 +50,7 @@ const Team = () => {
                 subHeading={"Designers and Developers of DEV DAIRIES"}
             ></SectionTitle>
             <section className="our-team-section">
-                <div className="container">
+                <div className="container mx-auto">
                     <div className="">
                         <div className="grid lg:grid-cols-4 lg:gap-6 md:grid-cols-2 md:gap-4 grid-cols-1 ">
                             {

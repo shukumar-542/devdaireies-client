@@ -1,28 +1,163 @@
-import React from 'react';
+'use client'
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import SinglePopularPosts from './SinglePopularPost';
+import SectionTitle from './SectionTitle';
 
 const PopularPosts = () => {
+
+    const [popularPostsOfPython, setPopularPostsOfPython] = useState([]);
+    const [popularPostsOfGo, setPopularPostsOfGo] = useState([]);
+    const [popularPostsOfPHP, setPopularPostsOfPHP] = useState([]);
+    const [popularPostsOfJS, setPopularPostsOfJS] = useState([]);
+    const [popularPosts, setPopularPosts] = useState([]);
+    useEffect(() => {
+        const fetchPopularBlogs = async () => {
+            try {
+                const response = await axios.get('http://localhost:5000/blogs/popular');
+                const fetchedData = response.data;
+                setPopularPosts(fetchedData);
+            } catch (error) {
+                console.error('Error fetching popular blogs:', error);
+            }
+        };
+        fetchPopularBlogs();
+    }, []);
+    useEffect(() => {
+        const fetchPopularBlogs = async () => {
+            try {
+                const response = await axios.get('http://localhost:5000/blogs/javascript');
+                const fetchedData = response.data;
+                setPopularPostsOfJS(fetchedData);
+            } catch (error) {
+                console.error('Error fetching popular blogs:', error);
+            }
+        };
+
+        fetchPopularBlogs();
+    }, []);
+    useEffect(() => {
+        const fetchPopularBlogs = async () => {
+            try {
+                const response = await axios.get('http://localhost:5000/blogs/php');
+                const fetchedData = response.data;
+                const slicedData = fetchedData.slice(0, 3);
+                setPopularPostsOfPHP(slicedData);
+            } catch (error) {
+                console.error('Error fetching popular blogs:', error);
+            }
+        };
+
+        fetchPopularBlogs();
+    }, []);
+    useEffect(() => {
+        const fetchPopularBlogs = async () => {
+            try {
+                const response = await axios.get('http://localhost:5000/blogs/go');
+                const fetchedData = response.data;
+                const slicedData = fetchedData.slice(0, 3);
+                setPopularPostsOfGo(slicedData);
+            } catch (error) {
+                console.error('Error fetching popular blogs:', error);
+            }
+        };
+
+        fetchPopularBlogs();
+    }, []);
+    useEffect(() => {
+        const fetchPopularBlogs = async () => {
+            try {
+                const response = await axios.get('http://localhost:5000/blogs/python');
+                const fetchedData = response.data;
+                const slicedData = fetchedData.slice(0, 3);
+                setPopularPostsOfPython(slicedData);
+            } catch (error) {
+                console.error('Error fetching popular blogs:', error);
+            }
+        };
+
+        fetchPopularBlogs();
+    }, []);
+
+    // console.log("popular posts", popularPosts);
+    // console.log("popular popular Posts Of JS", popularPostsOfJS);
+
     return (
         <div>
-            <div className='grid grid-cols-3 gap-6'>
-                <div className='shadow-xl rounded-xl hover:shadow-2xl p-4'>
-                    <div className='relative'>
-                        <img className='postsImg rounded-md ' src="https://img.freepik.com/free-vector/blue-futuristic-networking-technology_53876-97395.jpg?w=740&t=st=1688635172~exp=1688635772~hmac=4feaccdaea2f572e7730fa7f429a6697a44d4c8ff7a46701703d4272888a2f4a" alt="" width={400} height={400} />
-                        <p className='absolute top-0 text-white px-2 py-1 m-2 rounded-xl bg-slate-700 bg-opacity-60 border border-slate-900'>category</p>
-                        <p className='absolute right-0 bottom-0 text-white px-2 py-1 m-2 rounded-xl bg-slate-700 bg-opacity-60 border border-slate-900'>sub-category</p>
-
-                    </div>
-                    <div className=''>
-                        <h2 className='text-2xl font-bold mt-3'>Title: How to code your life!</h2>
-                        <p className=''>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur debitis doloribus iure eaque sequi! Molestias...</p>
-                        <button className='btn'>read more</button>
-                        <div className='divider p-0 mb-2'></div>
-                        <div className='flex justify-between '>
-                            <p>author name</p>
-                            <p>publish date</p>
-                        </div>
-                    </div>
+            <div>
+                <SectionTitle
+                    heading={"Popular Posts"}
+                    subHeading={"most liked posts"}
+                ></SectionTitle>
+                <div className='grid grid-cols-3 gap-6'>
+                    {
+                        popularPosts.map(post => {
+                            return <SinglePopularPosts key={post._id}
+                                post={post}
+                            ></SinglePopularPosts>
+                        })
+                    }
                 </div>
-
+            </div>
+            <div>
+                <SectionTitle
+                    heading={"popular javascript posts"}
+                    subHeading={"most liked javascript posts"}
+                ></SectionTitle>
+                <div className='grid grid-cols-3 gap-6'>
+                    {
+                        popularPostsOfJS.map(post => {
+                            return <SinglePopularPosts key={post._id}
+                                post={post}
+                            ></SinglePopularPosts>
+                        })
+                    }
+                </div>
+            </div>
+            <div>
+                <SectionTitle
+                    heading={"popular PHP posts"}
+                    subHeading={"most liked PHP posts"}
+                ></SectionTitle>
+                <div className='grid grid-cols-3 gap-6'>
+                    {
+                        popularPostsOfPHP.map(post => {
+                            return <SinglePopularPosts key={post._id}
+                                post={post}
+                            ></SinglePopularPosts>
+                        })
+                    }
+                </div>
+            </div>
+            <div>
+                <SectionTitle
+                    heading={"popular go posts"}
+                    subHeading={"most liked go posts"}
+                ></SectionTitle>
+                <div className='grid grid-cols-3 gap-6'>
+                    {
+                        popularPostsOfGo.map(post => {
+                            return <SinglePopularPosts key={post._id}
+                                post={post}
+                            ></SinglePopularPosts>
+                        })
+                    }
+                </div>
+            </div>
+            <div>
+                <SectionTitle
+                    heading={"popular python posts"}
+                    subHeading={"most liked python posts"}
+                ></SectionTitle>
+                <div className='grid grid-cols-3 gap-6'>
+                    {
+                        popularPostsOfPython.map(post => {
+                            return <SinglePopularPosts key={post._id}
+                                post={post}
+                            ></SinglePopularPosts>
+                        })
+                    }
+                </div>
             </div>
         </div>
     );
