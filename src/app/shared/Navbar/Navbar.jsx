@@ -1,3 +1,4 @@
+'use client'
 import Image from "next/image";
 import Link from "next/link";
 import fakeUser from "../../../../public/fakeuser.png"
@@ -6,6 +7,7 @@ import UseAuth from "@/hooks/useAuth";
 
 const Navbar = () => {
     const { user } = UseAuth;
+    // console.log("Nav:", user);
     const navBarLinks = <>
         <li> <Link href="/">Home</Link> </li>
         <li> <Link href="/allBlogs">All Blogs</Link></li>
@@ -58,6 +60,9 @@ const Navbar = () => {
                         </>
                             :
                             <><Link href="/signin">Sign In</Link></>
+                    }
+                    {
+                        user && <>{user.displayName}</>
                     }
                 </div>
             </div>

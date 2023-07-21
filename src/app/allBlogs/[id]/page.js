@@ -23,14 +23,14 @@ import { AuthContext } from "@/Context/AuthProvider";
 
 const page = async ({ params }) => {
     const { user } = useContext(AuthContext);
-    console.log(user);
+    // console.log(user);
     // console.log(params.id);
     const id = params.id;
     const url = `http://localhost:5000/blogs/${id}`;
     const res = await fetch(url);
     const data = await res.json();
     // console.log(data);
-    const { author, category, date, description, image, likes, subcategory, title } = data;
+    const { author, category, date, description, image, likes, comments, subcategory, title } = data;
     const tag = data.tags.join(', ');
 
     return (
@@ -88,7 +88,21 @@ const page = async ({ params }) => {
                     </div>
                 </div>
                 {/* Comment Section */}
-                <div className="m-10">
+                <div className="w-1/2 mx-auto p-6 rounded-md bg-slate-100">
+                    <p className="text-xl font-bold mb-4">{user?.displayName}</p>
+                    <div className="flex justify-between text-xl font-semibold mb-3">
+                        <p>{comments.length} Comments</p>
+                        <p className="flex items-center text-xl">{likes}<FaThumbsUp className=" text-lightOrange mb-1 ms-2" /></p>
+                    </div>
+                    <form>
+                        <input type="text" className="w-full h-20 p-2 border-2 border-purple focus:outline-deepOrange rounded-md" placeholder="your comment here" />
+                        <br />
+                        <div className="text-center w-full">
+                            <button className="bg-purple hover:bg-deepOrange p-2 mt-4 text-white font-semibold w-1/3 mx-auto rounded-md">Submit</button>
+                        </div>
+                    </form>
+                </div>
+                {/* <div className="m-10">
                     <h3 className="text-xl font-bold text-deepOrange my-4">All comments:</h3>
                     <div>
                         <p className="font-semibold font-lg text-purple">Name</p>
@@ -101,7 +115,7 @@ const page = async ({ params }) => {
                             <button className='bg-purple text-white font-semibold p-2 rounded-md ms-[-15px] hover:bg-deepOrange'>Submit</button>
                         </div>
                     </div>
-                </div>
+                </div> */}
             </main>
         </>
     );
