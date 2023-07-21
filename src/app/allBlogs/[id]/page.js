@@ -1,5 +1,7 @@
 import Image from "next/image";
 import { FaAngleDoubleRight, FaThumbsUp } from "react-icons/fa";
+import { BiSolidUser } from 'react-icons/bi';
+import { FcCalendar } from 'react-icons/fc';
 const page = async ({ params }) => {
     // console.log(params.id);
     const id = params.id;
@@ -12,14 +14,24 @@ const page = async ({ params }) => {
 
     return (
         <>
-            <main className="section-gap">
-                <div className="flex">
+            <main className=" my-container">
+                <div className="p-5 shadow-xl rounded-md m-10">
                     {/* Image Section */}
-                    <Image src={image} className="h-[300px] w-[500px]" alt="" height={300} width={450} />
+                    <Image src={image} className="w-full h-80 " alt="" height={300} width={450} />
                     {/* Content Section */}
-                    <div className="ms-8 text-lg space-y-3">
-                        <p>{date}</p>
-                        <div className="flex items-center space-x-3 text-purple">
+                    <div className=" text-lg space-y-3">
+                        <h3 className="text-4xl font-bold my-4">{title}</h3>
+                        <div className="flex items-center  gap-10">
+                            <div className="flex items-center gap-4">
+                                <BiSolidUser className="text-blue-500 text-3xl bg-blue-100 p-1 rounded-full"></BiSolidUser>
+                                <p className="text-lg"> {author}</p>
+                            </div>
+                            <div className="flex items-center gap-4">
+                                <FcCalendar className="text-3xl"></FcCalendar>
+                                <p>{date}</p>
+                            </div>
+                        </div>
+                        <div className="flex items-center space-x-3 ">
                             {
                                 category && (<p>Category: {category}</p>)
                             }
@@ -28,11 +40,8 @@ const page = async ({ params }) => {
                                 subcategory && (<p>Subcategory: {subcategory}</p>)
                             }
                         </div>
-                        <h3 className="text-4xl font-bold my-4">{title}</h3>
                         <p>{description}</p>
-                        <p className="flex text-xl font-semibold items-center"><FaThumbsUp className="text-deepOrange me-3" /> {likes}</p>
-                        <p className="text-lg font-bold">Author: <span className="italic">{author}</span></p>
-                        <p>Tags: {tag}</p>
+                        
 
                         {/* Social Share */}
                         <div>
@@ -42,11 +51,11 @@ const page = async ({ params }) => {
                     </div>
                 </div>
                 {/* Comment Section */}
-                <div>
+                <div className="m-10">
                     <h3 className="text-xl font-bold text-deepOrange my-4">All comments:</h3>
                     <div>
                         <p className="font-semibold font-lg text-purple">Name</p>
-                        <p>Comment Here</p>
+                        <p>200 Comment</p>
                     </div>
                     <div>
                         <h3 className="text-xl font-bold text-deepOrange mt-4 mb-1">Please give feedback:</h3>
