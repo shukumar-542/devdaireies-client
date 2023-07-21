@@ -1,7 +1,21 @@
+'use client'
 import Image from "next/image";
-import { FaAngleDoubleRight, FaThumbsUp } from "react-icons/fa";
-import { BiSolidUser } from 'react-icons/bi';
-import { FcCalendar } from 'react-icons/fc';
+import { FaAngleDoubleRight, FaFacebook, FaInstagram, FaLinkedin, FaPinterest, FaThumbsUp, FaTwitter, FaWhatsapp } from "react-icons/fa";
+
+import {
+    EmailShareButton,
+    FacebookShareButton,
+    FacebookShareCount,
+    InstapaperShareButton,
+    LinkedinShareButton,
+    PinterestShareButton,
+    RedditShareButton,
+    TelegramShareButton,
+    TwitterIcon,
+    TwitterShareButton,
+    WhatsappShareButton
+} from "react-share";
+
 const page = async ({ params }) => {
     // console.log(params.id);
     const id = params.id;
@@ -45,7 +59,23 @@ const page = async ({ params }) => {
 
                         {/* Social Share */}
                         <div>
-
+                            <div>
+                                <p className="text-xl font-bold my-2">Social Share:</p>
+                            </div>
+                            <div className="space-x-3">
+                                <TwitterShareButton url={url} title={title}>
+                                    <FaTwitter className="text-4xl text-[#05ABED]" />
+                                </TwitterShareButton>
+                                <WhatsappShareButton url={url} title={title}>
+                                    <FaWhatsapp className="text-4xl text-[#5CDE8C]" />
+                                </WhatsappShareButton>
+                                <FacebookShareButton url={url} title={title}>
+                                    <FaFacebook className="text-4xl text-[#0081ED]" />
+                                </FacebookShareButton>
+                                <LinkedinShareButton url={url} title={title}>
+                                    <FaLinkedin className="text-4xl text-[#0A66C2]" />
+                                </LinkedinShareButton>
+                            </div>
                         </div>
 
                     </div>
