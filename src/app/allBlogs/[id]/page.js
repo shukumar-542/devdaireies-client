@@ -1,6 +1,9 @@
 'use client'
 import Image from "next/image";
 import { FaAngleDoubleRight, FaFacebook, FaInstagram, FaLinkedin, FaPinterest, FaThumbsUp, FaTwitter, FaWhatsapp } from "react-icons/fa";
+import { BiSolidUser } from "react-icons/bi";
+import { FcCalendar } from "react-icons/fc";
+
 
 import {
     EmailShareButton,
@@ -15,8 +18,12 @@ import {
     TwitterShareButton,
     WhatsappShareButton
 } from "react-share";
+import { useContext } from "react";
+import { AuthContext } from "@/Context/AuthProvider";
 
 const page = async ({ params }) => {
+    const { user } = useContext(AuthContext);
+    console.log(user);
     // console.log(params.id);
     const id = params.id;
     const url = `http://localhost:5000/blogs/${id}`;
@@ -31,7 +38,7 @@ const page = async ({ params }) => {
             <main className=" my-container">
                 <div className="p-5 shadow-xl rounded-md m-10">
                     {/* Image Section */}
-                    <Image src={image} className="w-full h-80 " alt="" height={300} width={450} />
+                    <Image src={image} className="w-full h-96 " alt="" height={300} width={450} />
                     {/* Content Section */}
                     <div className=" text-lg space-y-3">
                         <h3 className="text-4xl font-bold my-4">{title}</h3>
@@ -55,7 +62,7 @@ const page = async ({ params }) => {
                             }
                         </div>
                         <p>{description}</p>
-                        
+
 
                         {/* Social Share */}
                         <div>
