@@ -3,7 +3,6 @@ import axios from 'axios';
 import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
 import { FaSearch } from 'react-icons/fa';
-import Zoom from 'react-reveal/Zoom';
 import { FaThumbsUp } from "react-icons/fa";
 import { FiSearch } from "react-icons/fi";
 import Link from 'next/link';
@@ -81,29 +80,26 @@ const page = () => {
                         allBlogs.map((blog, index) => (
 
                             <div className="" key={index}>
-                                <Zoom>
-                                    <div className="p-3 rounded-md hover:shadow-xl shadow-purple">
-                                        <div className="">
-                                            <Image src={blog.image} alt='' className='rounded-md h-[220px] mb-2' height={300} width={400} />
+                                <div className="p-3 rounded-md hover:shadow-xl shadow-purple">
+                                    <div className="">
+                                        <Image src={blog.image} alt='' className='rounded-md h-[220px] mb-2' height={300} width={400} />
+                                    </div>
+                                    <div className="space-y-3">
+                                        <div className='flex justify-between mt-3'>
+                                            <p className='border  rounded-md py-1 px-3 hover:bg-orange-600 hover:text-white transition ease-in-out duration-300 text-lightOrange font-semibold'>{blog.category}</p>
+                                            <p className='border  rounded-md py-1 px-3 hover:bg-orange-600 hover:text-white transition ease-in-out duration-300 text-lightOrange font-semibold'>{blog.subcategory}</p>
                                         </div>
-                                        <div className="space-y-3">
-                                            <div className='flex justify-between mt-3'>
-                                                <p className='border  rounded-md py-1 px-3 hover:bg-orange-600 hover:text-white transition ease-in-out duration-300 text-lightOrange font-semibold'>{blog.category}</p>
-                                                <p className='border  rounded-md py-1 px-3 hover:bg-orange-600 hover:text-white transition ease-in-out duration-300 text-lightOrange font-semibold'>{blog.subcategory}</p>
-                                            </div>
-                                            <h2 className="font-bold  text-2xl">{blog.title}</h2>
-                                            <div className='flex justify-between items-center'>
-                                                <p className='flex items-center text-lg cursor-pointer font-semibold  transition-transform transform-gpu hover:-translate-y-1'><FaThumbsUp className='text-deepOrange me-1' /> {blog.likes}</p>
-                                                <Link href={`allBlogs/${blog._id}`}>
-                                                    <button class="px-3 py-1 bg-gradient-to-r from-purple to-deepOrange text-white font-semibold rounded-md transition-transform transform-gpu hover:-translate-y-1 hover:shadow-lg">
-                                                        Read More
-                                                    </button>
-                                                </Link>
-
-                                            </div>
+                                        <h2 className="font-bold  text-2xl">{blog.title}</h2>
+                                        <div className='flex justify-between items-center'>
+                                            <p className='flex items-center text-lg cursor-pointer font-semibold  transition-transform transform-gpu hover:-translate-y-1'><FaThumbsUp className='text-deepOrange me-1' /> {blog.likes}</p>
+                                            <Link href={`allBlogs/${blog._id}`}>
+                                                <button class="px-3 py-1 bg-gradient-to-r from-purple to-deepOrange text-white font-semibold rounded-md transition-transform transform-gpu hover:-translate-y-1 hover:shadow-lg">
+                                                    Read More
+                                                </button>
+                                            </Link>
                                         </div>
                                     </div>
-                                </Zoom>
+                                </div>
                             </div>
 
                         ))
