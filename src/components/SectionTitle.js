@@ -2,9 +2,10 @@ import React from 'react';
 
 const SectionTitle = ({ heading, subHeading }) => {
     return (
-        <div className='mx-auto text-center my-10'>
-            <h2 className='text-4xl font-bold uppercase'><span>&#x276E;</span> {heading} <span>&#47;&#10095;</span></h2>
-            <h4 className='text-2xl font-semibold mt-2'>{subHeading}</h4>
+        <div className=' my-10'>
+            <h1 className='text-3xl font-bold text-indigo-800' >{heading}</h1>
+            <p className='mt-1 font-semibold'>{subHeading}</p>
+            <div className="divider"></div>
         </div>
     );
 };
