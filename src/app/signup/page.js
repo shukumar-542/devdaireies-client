@@ -14,7 +14,7 @@ import Swal from 'sweetalert2';
 
 const auth = getAuth(app)
 const page = () => {
-  const { createUserWithEMail, user, setUser } = useContext(AuthContext)
+  const { createUserWithEMail, user, setUser,setLoading } = useContext(AuthContext)
   const [error, setError] = useState('')
   const [success, setSuccess] = useState('')
   const [showPass, setShowPass] = useState(false);
@@ -71,7 +71,8 @@ const page = () => {
   }
   // update users display name and photoURl
   const updateUser = (name, photo) => {
-    updateProfile(auth.currentUser, {
+    setLoading(true)
+    return updateProfile(auth.currentUser, {
       displayName: name,
       photoURL: photo
     })

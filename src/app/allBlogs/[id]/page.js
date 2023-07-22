@@ -3,8 +3,6 @@ import Image from "next/image";
 import { FaAngleDoubleRight, FaFacebook, FaInstagram, FaLinkedin, FaPinterest, FaThumbsUp, FaTwitter, FaWhatsapp } from "react-icons/fa";
 import { BiSolidUser } from "react-icons/bi";
 import { FcCalendar } from "react-icons/fc";
-
-
 import {
     EmailShareButton,
     FacebookShareButton,
@@ -18,20 +16,29 @@ import {
     TwitterShareButton,
     WhatsappShareButton
 } from "react-share";
-import { useContext } from "react";
+import useAuth from "@/hooks/useAuth";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "@/Context/AuthProvider";
 
-const page = async ({ params }) => {
+const page =  ({ params }) => {
     const { user } = useContext(AuthContext);
-    // console.log(user);
+    console.log(user);
     // console.log(params.id);
+    // const { user } = useAuth()
+    // console.log(user);
+
     const id = params.id;
-    const url = `http://localhost:5000/blogs/${id}`;
-    const res = await fetch(url);
-    const data = await res.json();
+    const [data , setData] = useState(null)
+
     // console.log(data);
-    const { author, category, date, description, image, likes, comments, subcategory, title } = data;
-    const tag = data.tags.join(', ');
+    const url = `http://localhost:5000/blogs/${id}`
+    
+    useEffect(() => {
+        const url = `http://localhost:5000/blogs/${id}`;
+        fetch(url).then(res => res.json()).then(data => setData(data))
+    }, [id])
+    const { author, category, date, description, image, likes, comments, subcategory, title } = data || {};
+    // const tag = data?.tags.join(', ');
 
     return (
         <>
@@ -91,7 +98,7 @@ const page = async ({ params }) => {
                 <div className="w-1/2 mx-auto p-6 rounded-md bg-slate-100">
                     <p className="text-xl font-bold mb-4">{user?.displayName}</p>
                     <div className="flex justify-between text-xl font-semibold mb-3">
-                        <p>{comments.length} Comments</p>
+                        <p>{comments?.length} Comments</p>
                         <p className="flex items-center text-xl">{likes}<FaThumbsUp className=" text-lightOrange mb-1 ms-2" /></p>
                     </div>
                     <form>

@@ -21,6 +21,7 @@ const page = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const router = useRouter()
     const onSubmit = (data) => {
+        
         signUserWithEmailPass(data.email, data.password)
             .then(result => {
                 const user = result.user;

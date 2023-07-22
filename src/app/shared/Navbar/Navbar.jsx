@@ -4,10 +4,12 @@ import Link from "next/link";
 import fakeUser from "../../../../public/fakeuser.png"
 import logo from "../../../../public/DD-f.png"
 import UseAuth from "@/hooks/useAuth";
+import { useContext } from "react";
+import { AuthContext } from "@/Context/AuthProvider";
 
 const Navbar = () => {
-    const { user } = UseAuth;
-    // console.log("Nav:", user);
+    const { user } = useContext(AuthContext);
+    console.log("Nav:", user);
     const navBarLinks = <>
         <li> <Link href="/">Home</Link> </li>
         <li> <Link href="/allBlogs">All Blogs</Link></li>
