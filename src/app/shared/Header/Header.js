@@ -7,6 +7,7 @@ import { FaBars, FaCross } from "react-icons/fa";
 import Drawer from "react-modern-drawer";
 import "react-modern-drawer/dist/index.css";
 
+
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const toggleDrawer = () => {
@@ -15,6 +16,7 @@ const Header = () => {
 
   return (
     <div className="relative">
+      
       <div className="flex items-center justify-between sm:hidden md:block">
         <div className="flex items-center justify-between">
           <Image src={logo} width={200} height={200} alt="Picture of the author" />
