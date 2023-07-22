@@ -28,10 +28,10 @@ const RecentSlider = () => {
         <div className=''>
             <div className="grid grid-cols-12 gap-6">
                 {/* cover image */}
-                <div className="col-span-8">
-                    <div data-aos="zoom-in" className="">
-                        <div className="relative group">
-                            <img src={recentPosts[0].image} alt="Image 1" className="w-full" />
+                <div className="col-span-8 h-full">
+                    <div data-aos="zoom-in" className="h-full">
+                        <div className="relative group h-full">
+                            <img src={recentPosts[0].image} alt="Image 1" className="w-full h-full" />
                             <div className="absolute inset-0 bg-black bg-opacity-80 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                                 <p className="text-orange lg:text-4xl font-bold text-center transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 text-white">
                                     {recentPosts[0].title}

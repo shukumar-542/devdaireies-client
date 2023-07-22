@@ -1,9 +1,15 @@
+'use client'
 import Image from "next/image";
 import Link from "next/link";
 import fakeUser from "../../../../public/fakeuser.png"
 import logo from "../../../../public/DD-f.png"
+import UseAuth from "@/hooks/useAuth";
+import { useContext } from "react";
+import { AuthContext } from "@/Context/AuthProvider";
 
 const Navbar = () => {
+    const { user } = useContext(AuthContext);
+    console.log("Nav:", user);
     const navBarLinks = <>
         <li> <Link href="/">Home</Link> </li>
         <li> <Link href="/allBlogs">All Blogs</Link></li>
@@ -46,11 +52,20 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <div className="avatar online ms-4">
-                        <div className="w-16 rounded-full">
-                            <Image alt="" src={fakeUser} height={60} width={60} />
-                        </div>
-                    </div>
+                    {
+                        user ? <>
+                            <div className="avatar online ms-4">
+                                <div className="w-16 rounded-full">
+                                    <Image alt="" src={fakeUser} height={60} width={60} />
+                                </div>
+                            </div>
+                        </>
+                            :
+                            <><Link href="/signin">Sign In</Link></>
+                    }
+                    {
+                        user && <>{user.displayName}</>
+                    }
                 </div>
             </div>
         </div >

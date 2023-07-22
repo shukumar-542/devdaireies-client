@@ -1,7 +1,8 @@
 'use client'
 import Image from "next/image";
 import { FaAngleDoubleRight, FaFacebook, FaInstagram, FaLinkedin, FaPinterest, FaThumbsUp, FaTwitter, FaWhatsapp } from "react-icons/fa";
-
+import { BiSolidUser } from "react-icons/bi";
+import { FcCalendar } from "react-icons/fc";
 import {
     EmailShareButton,
     FacebookShareButton,
@@ -15,27 +16,50 @@ import {
     TwitterShareButton,
     WhatsappShareButton
 } from "react-share";
+import useAuth from "@/hooks/useAuth";
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "@/Context/AuthProvider";
 
-const page = async ({ params }) => {
+const page =  ({ params }) => {
+    const { user } = useContext(AuthContext);
+    console.log(user);
     // console.log(params.id);
+    // const { user } = useAuth()
+    // console.log(user);
+
     const id = params.id;
-    const url = `http://localhost:5000/blogs/${id}`;
-    const res = await fetch(url);
-    const data = await res.json();
+    const [data , setData] = useState(null)
+
     // console.log(data);
-    const { author, category, date, description, image, likes, subcategory, title } = data;
-    const tag = data.tags.join(', ');
+    const url = `http://localhost:5000/blogs/${id}`
+    
+    useEffect(() => {
+        const url = `http://localhost:5000/blogs/${id}`;
+        fetch(url).then(res => res.json()).then(data => setData(data))
+    }, [id])
+    const { author, category, date, description, image, likes, comments, subcategory, title } = data || {};
+    // const tag = data?.tags.join(', ');
 
     return (
         <>
-            <main className="section-gap">
-                <div className="flex">
+            <main className=" my-container">
+                <div className="p-5 shadow-xl rounded-md m-10">
                     {/* Image Section */}
-                    <Image src={image} className="h-[300px] w-[500px]" alt="" height={300} width={450} />
+                    <Image src={image} className="w-full h-96 " alt="" height={300} width={450} />
                     {/* Content Section */}
-                    <div className="ms-8 text-lg space-y-3">
-                        <p>{date}</p>
-                        <div className="flex items-center space-x-3 text-purple">
+                    <div className=" text-lg space-y-3">
+                        <h3 className="text-4xl font-bold my-4">{title}</h3>
+                        <div className="flex items-center  gap-10">
+                            <div className="flex items-center gap-4">
+                                <BiSolidUser className="text-blue-500 text-3xl bg-blue-100 p-1 rounded-full"></BiSolidUser>
+                                <p className="text-lg"> {author}</p>
+                            </div>
+                            <div className="flex items-center gap-4">
+                                <FcCalendar className="text-3xl"></FcCalendar>
+                                <p>{date}</p>
+                            </div>
+                        </div>
+                        <div className="flex items-center space-x-3 ">
                             {
                                 category && (<p>Category: {category}</p>)
                             }
@@ -44,11 +68,8 @@ const page = async ({ params }) => {
                                 subcategory && (<p>Subcategory: {subcategory}</p>)
                             }
                         </div>
-                        <h3 className="text-4xl font-bold my-4">{title}</h3>
                         <p>{description}</p>
-                        <p className="flex text-xl font-semibold items-center"><FaThumbsUp className="text-deepOrange me-3" /> {likes}</p>
-                        <p className="text-lg font-bold">Author: <span className="italic">{author}</span></p>
-                        <p>Tags: {tag}</p>
+
 
                         {/* Social Share */}
                         <div>
@@ -74,11 +95,25 @@ const page = async ({ params }) => {
                     </div>
                 </div>
                 {/* Comment Section */}
-                <div>
+                <div className="w-1/2 mx-auto p-6 rounded-md bg-slate-100">
+                    <p className="text-xl font-bold mb-4">{user?.displayName}</p>
+                    <div className="flex justify-between text-xl font-semibold mb-3">
+                        <p>{comments?.length} Comments</p>
+                        <p className="flex items-center text-xl">{likes}<FaThumbsUp className=" text-lightOrange mb-1 ms-2" /></p>
+                    </div>
+                    <form>
+                        <input type="text" className="w-full h-20 p-2 border-2 border-purple focus:outline-deepOrange rounded-md" placeholder="your comment here" />
+                        <br />
+                        <div className="text-center w-full">
+                            <button className="bg-purple hover:bg-deepOrange p-2 mt-4 text-white font-semibold w-1/3 mx-auto rounded-md">Submit</button>
+                        </div>
+                    </form>
+                </div>
+                {/* <div className="m-10">
                     <h3 className="text-xl font-bold text-deepOrange my-4">All comments:</h3>
                     <div>
                         <p className="font-semibold font-lg text-purple">Name</p>
-                        <p>Comment Here</p>
+                        <p>200 Comment</p>
                     </div>
                     <div>
                         <h3 className="text-xl font-bold text-deepOrange mt-4 mb-1">Please give feedback:</h3>
@@ -87,7 +122,7 @@ const page = async ({ params }) => {
                             <button className='bg-purple text-white font-semibold p-2 rounded-md ms-[-15px] hover:bg-deepOrange'>Submit</button>
                         </div>
                     </div>
-                </div>
+                </div> */}
             </main>
         </>
     );

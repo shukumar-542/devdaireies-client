@@ -1,63 +1,85 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 "use client";
-import { AuthContext } from "@/Context/AuthProvider";
-import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";
 import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { BsEyeFill, BsEyeSlashFill } from "react-icons/bs";
 import fingerPrint from "../../../assets/Fingerprint.gif";
+import { AuthContext } from "@/Context/AuthProvider";
+import { updateProfile, getAuth } from 'firebase/auth';
+import app from '../../Firebase/Firebase.config'
+import Swal from 'sweetalert2';
+
+
+const auth = getAuth(app)
 const page = () => {
-  const { registerUser, updateUser } = useContext(AuthContext);
-  const [error, setError] = useState("");
+  const { createUserWithEMail, user, setUser,setLoading } = useContext(AuthContext)
+  const [error, setError] = useState('')
+  const [success, setSuccess] = useState('')
   const [showPass, setShowPass] = useState(false);
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors },
-  } = useForm();
-  const onSubmit = (data) => {
-    setError("");
-    const name = data.name;
-    const email = data.email;
-    const password = data.password;
-    // host image
-    const formData = new FormData();
-    formData.append("file", data.photo[0]);
-    // NEXT_PUBLIC_cloudDainary_preset = DevDaires;
-    // NEXT_PUBLIC_cloudDainary_cloudName = dcpdcdfxy;
-    formData.append(
-      "upload_preset",
-      `${process.env.NEXT_PUBLIC_cloudDainary_preset}`
-    );
-    formData.append(
-      "cloud_name",
-      `${process.env.NEXT_PUBLIC_cloudDainary_cloudName}`
-    );
-    axios
-      .post(
-        `https://api.cloudinary.com/v1_1/${process.env.NEXT_PUBLIC_cloudDainary_cloudName}/image/upload`,
-        formData
-      )
-      .then((image) => {
-        const photo = image.data.url;
-        console.log(photo);
-        if (data.password !== data.confirmPassword) {
-          return setError("Password Do not match");
+
+  
+
+
+  const { register, handleSubmit, reset, formState: { errors } } = useForm();
+  const onSubmit = data => {
+    const pass = data.password
+    const rePass = data.confirmPassword
+    if (pass !== rePass) {
+      Swal.fire({
+        title: 'Password does not match!!',
+        showClass: {
+          popup: 'animate__animated animate__fadeInDown'
+        },
+        hideClass: {
+          popup: 'animate__animated animate__fadeOutUp'
         }
-        registerUser(email, password)
-          .then((res) => {
-            updateUser(name, photo);
-            console.log(res);
-          })
-          .catch((err) => setError(err.message));
-      });
-  };
+      })
+
+      return;
+    }
+
+    createUserWithEMail(data.email, data.password)
+      .then(result => {
+        const user = result.user;
+        updateUser(data.name, data.photo)
+        setUser({ ...user, displayName: data.name, photoURL: data.photo })
+        console.log(data.name);
+        const useUserDb = {
+          email: user.email,
+          displayName: data.name,
+          image: data.photo
+        }
+        // savedUser(useUserDb)
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: 'User Create SuccessFully',
+          showConfirmButton: false,
+          timer: 1500
+        })
+        setError('')
+
+
+      })
+      .catch(error => {
+        const errorMessage = error.message;
+        console.log(errorMessage);
+        setError(errorMessage)
+      })
+  }
+  // update users display name and photoURl
+  const updateUser = (name, photo) => {
+    setLoading(true)
+    return updateProfile(auth.currentUser, {
+      displayName: name,
+      photoURL: photo
+    })
+  }
 
   return (
-    <div className="container mx-auto flex items-center h-[100vh]">
+    <div className="container mx-auto flex items-center my-10 h-[100vh]">
       <div className="w-full">
         <Image className="w-full" src={fingerPrint} alt="finger print" />
       </div>
