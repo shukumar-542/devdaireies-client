@@ -25,7 +25,11 @@ const Navbar = () => {
                 </ul>
             </details>
         </li>
-        <li> <Link href="/about">About Us</Link></li>
+        <li> <Link href="/userDashboard/myBlogs">Dashboard</Link></li>
+        {
+            user?.email && <li> <Link href="/about">About Us</Link></li>
+        }
+
 
     </>
 
@@ -55,16 +59,13 @@ const Navbar = () => {
                     {
                         user ? <>
                             <div className="avatar online ms-4">
-                                <div className="w-16 rounded-full">
-                                    <Image alt="" src={fakeUser} height={60} width={60} />
+                                <div className="w-16 rounded-full lg:tooltip" data-tip="">
+                                    <Image src={fakeUser} className="" alt="" height={60} width={60} />
                                 </div>
                             </div>
                         </>
                             :
                             <><Link href="/signin">Sign In</Link></>
-                    }
-                    {
-                        user && <>{user.displayName}</>
                     }
                 </div>
             </div>
