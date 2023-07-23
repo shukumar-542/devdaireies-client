@@ -6,6 +6,7 @@ import logo from "../../../../public/DD-f.png"
 import UseAuth from "@/hooks/useAuth";
 import { useContext } from "react";
 import { AuthContext } from "@/Context/AuthProvider";
+import { BiSolidUser } from "react-icons/bi";
 
 const Navbar = () => {
     const { user } = useContext(AuthContext);
@@ -58,11 +59,17 @@ const Navbar = () => {
                 <div className="navbar-end">
                     {
                         user ? <>
-                            <div className="avatar online ms-4">
-                                <div className="w-16 rounded-full lg:tooltip" data-tip="">
-                                    <Image src={fakeUser} className="" alt="" height={60} width={60} />
+                            {
+                                user.photoURL ? <div className="avatar online ms-4">
+                                    <div className="w-16 rounded-full">
+                                        <Image src={user?.photoURL} className="" alt="" height={60} width={60} />
+                                    </div>
                                 </div>
-                            </div>
+                                    :
+                                    <>
+                                        <BiSolidUser className="h-[60px]" />
+                                    </>
+                            }
                         </>
                             :
                             <><Link href="/signin">Sign In</Link></>
