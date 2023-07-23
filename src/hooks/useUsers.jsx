@@ -3,27 +3,27 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const useBlogs = () => {
-    const [allBlogs, setAllBlogs] = useState([]);
+const useUsers = () => {
+    const [allUsers, setAllUsers] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        const fetchAllBlogs = async () => {
+        const fetchAllUsers = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/blogs');
+                const response = await axios.get('http://localhost:5000/users');
                 const fetchedData = response.data;
-                setAllBlogs(fetchedData);
+                setAllUsers(fetchedData);
                 setLoading(false);
             } catch (error) {
                 setError(error);
                 setLoading(false);
             }
         };
-        fetchAllBlogs();
+        fetchAllUsers();
     }, []);
 
-    return { allBlogs, loading, error };
+    return { allUsers, loading, error };
 };
 
-export default useBlogs;
+export default useUsers;
