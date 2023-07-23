@@ -16,29 +16,66 @@ import {
     TwitterShareButton,
     WhatsappShareButton
 } from "react-share";
-import useAuth from "@/hooks/useAuth";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "@/Context/AuthProvider";
+import Comment from "@/components/Comment/Comment";
 
-const page =  ({ params }) => {
+const page = ({ params }) => {
     const { user } = useContext(AuthContext);
-    console.log(user);
+    // console.log(user?.displayName, user?.photoURL);
     // console.log(params.id);
     // const { user } = useAuth()
     // console.log(user);
 
     const id = params.id;
-    const [data , setData] = useState(null)
+    const [data, setData] = useState(null);
+    const [comment, setComment] = useState(null)
 
-    // console.log(data);
+
+    // console.log(comment);
     const url = `http://localhost:5000/blogs/${id}`
-    
+
     useEffect(() => {
         const url = `http://localhost:5000/blogs/${id}`;
         fetch(url).then(res => res.json()).then(data => setData(data))
     }, [id])
-    const { author, category, date, description, image, likes, comments, subcategory, title } = data || {};
+
+    useEffect(() => {
+        fetch(`http://localhost:5000/comment/${id}`)
+            .then(res => res.json())
+            .then(data => setComment(data))
+    }, [id])
+    const { author, category, date, description, image, likes, subcategory, title } = data || {};
     // const tag = data?.tags.join(', ');
+
+    const handlePostSubmit = (e) => {
+        e.preventDefault();
+        const post = e.target.comment.value;
+        // console.log(post ,id);
+        const newComment = { id, post ,
+             displayName : user?.displayName, 
+             photoURL : user?.photoURL 
+            }
+        fetch(`http://localhost:5000/comment`, {
+            method: 'post',
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify(newComment)
+
+        })
+            .then(res => res.json())
+            .then(data => {
+
+                if (data.acknowledged) {
+                    fetch(`http://localhost:5000/comment/${id}`)
+                        .then(res => res.json())
+                        .then(data => setComment(data))
+                }
+            })
+        e.target.comment.value = ''
+
+
+
+    }
 
     return (
         <>
@@ -95,20 +132,29 @@ const page =  ({ params }) => {
                     </div>
                 </div>
                 {/* Comment Section */}
-                <div className="w-1/2 mx-auto p-6 rounded-md bg-slate-100">
-                    <p className="text-xl font-bold mb-4">{user?.displayName}</p>
+                <div className="w-3/4 mx-auto p-6 rounded-md bg-slate-100">
                     <div className="flex justify-between text-xl font-semibold mb-3">
-                        <p>{comments?.length} Comments</p>
+                        <p>{comment?.length} Comments</p>
                         <p className="flex items-center text-xl">{likes}<FaThumbsUp className=" text-lightOrange mb-1 ms-2" /></p>
                     </div>
-                    <form>
-                        <input type="text" className="w-full h-20 p-2 border-2 border-purple focus:outline-deepOrange rounded-md" placeholder="your comment here" />
+                    <form onSubmit={handlePostSubmit}>
+                        <input type="text" name="comment" className="w-full h-20 p-2 border-2 border-purple focus:outline-deepOrange rounded-md" placeholder="your comment here" />
                         <br />
-                        <div className="text-center w-full">
-                            <button className="bg-purple hover:bg-deepOrange p-2 mt-4 text-white font-semibold w-1/3 mx-auto rounded-md">Submit</button>
+                        <div className="text-end w-full">
+                            <button className="bg-gray-600 hover:bg-deepOrange p-2 mt-4 text-white font-semibold w-36 mx-auto rounded-md">Post Comment</button>
                         </div>
                     </form>
                 </div>
+
+
+                {
+                    comment?.map((com, id) => <Comment
+                        key={id}
+                        com={com}
+                    ></Comment>)
+                }
+
+
                 {/* <div className="m-10">
                     <h3 className="text-xl font-bold text-deepOrange my-4">All comments:</h3>
                     <div>
