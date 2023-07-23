@@ -14,12 +14,12 @@ import Swal from 'sweetalert2';
 
 const auth = getAuth(app)
 const page = () => {
-  const { createUserWithEMail, user, setUser,setLoading } = useContext(AuthContext)
+  const { createUserWithEMail, user, setUser, setLoading } = useContext(AuthContext)
   const [error, setError] = useState('')
   const [success, setSuccess] = useState('')
   const [showPass, setShowPass] = useState(false);
 
-  
+
 
 
   const { register, handleSubmit, reset, formState: { errors } } = useForm();
@@ -51,7 +51,13 @@ const page = () => {
           displayName: data.name,
           image: data.photo
         }
-        // savedUser(useUserDb)
+
+        fetch(`http://localhost:5000/users/${user?.email}`, {
+          method: 'PUT',
+          headers: { 'content-type': 'application/json' },
+          body: JSON.stringify(useUserDb)
+
+        })
         Swal.fire({
           position: 'top-end',
           icon: 'success',

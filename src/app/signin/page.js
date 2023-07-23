@@ -64,8 +64,19 @@ const page = () => {
         signInWithGoogle()
             .then(result => {
                 const user = result.user;
+                const currentUser = {
+                    email : user.email,
+                    name : user.displayName,
+                    image : user.photoURL
+                }
+                fetch(`http://localhost:5000/users/${user?.email}`,{
+                    method : 'PUT',
+                    headers : {'content-type' : 'application/json'},
+                    body : JSON.stringify(currentUser)
+            
+                })
+                // console.log('single user ' ,user);
                 router.push('/')
-                console.log(user);
             })
             .catch(error => {
                 const errorMessage = error.message;

@@ -1,17 +1,30 @@
 'use client'
 import SubCategory from "@/components/SubCategory";
+import { denyBlogStatus, updateBlogStatus } from "@/hooks/blogApi";
 import useBlogs from "@/hooks/useAllBLogs";
 import Image from "next/image";
 import { FaAngleDoubleRight } from "react-icons/fa";
+
 const page = () => {
     const { allBlogs } = useBlogs();
+
+    const handleApproved =(id)=>{
+        updateBlogStatus(id)
+        
+
+    }
+
+    const handleDeny = (id)=>{
+        denyBlogStatus(id)
+
+    }
     return (
         <div className="bg-slate-100 w-full p-4 rounded-md">
             <h2 className="text-2xl font-bold mb-4">Manage Blogs</h2>
             <div>
                 {
                     allBlogs.map(singleBlog => {
-                        const { author, category, date, description, image, likes, subcategory, title, _id } = singleBlog;
+                        const {  author, category, date, description, image, likes, subcategory, title, _id } = singleBlog;
                         return (
                             <div key={singleBlog._id}>
                                 <div className="my-8 shadow-md hover:shadow-lg rounded-md p-4 bg-white">
@@ -24,9 +37,9 @@ const page = () => {
                                                 <h3 className="text-3xl font-bold">{title}</h3>
                                                 <h4 className="text-lg">{description}
                                                 </h4>
-                                                <div className="w-1/3 flex justify-between my-5">
-                                                    <button className="bg-slate-200 text-purple font-bold text-lg py-1 px-3 rounded-md hover:bg-purple hover:text-white">Approve</button>
-                                                    <button className="bg-slate-200 text-purple font-bold text-lg py-1 px-3 rounded-md hover:bg-purple hover:text-white">Deny</button>
+                                                <div className="w-1/3 flex gap-2 my-5">
+                                                    <button onClick={()=> handleApproved(_id)} className="bg-slate-200 text-purple font-bold text-lg py-1 px-3 rounded-md hover:bg-purple hover:text-white">Approve</button>
+                                                    <button onClick={()=> handleDeny(_id)} className="bg-slate-200 text-purple font-bold text-lg py-1 px-3 rounded-md hover:bg-purple hover:text-white">Deny</button>
                                                 </div>
                                             </div>
                                         </div>
