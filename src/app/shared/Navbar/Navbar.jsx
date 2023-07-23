@@ -26,9 +26,12 @@ const Navbar = () => {
                 </ul>
             </details>
         </li>
-        <li> <Link href="/userDashboard/myBlogs">Dashboard</Link></li>
+        <li> <Link href="/about">About Us</Link></li>
         {
-            user?.email && <li> <Link href="/about">About Us</Link></li>
+            user?.email && <li><Link href="/userDashboard/myBlogs">Dashboard</Link></li>
+        }
+        {
+            user?.email && <li><Link href="/adminDashboard">A-Dashboard</Link></li>
         }
 
 
