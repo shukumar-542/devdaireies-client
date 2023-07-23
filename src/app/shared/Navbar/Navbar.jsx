@@ -9,7 +9,7 @@ import { AuthContext } from "@/Context/AuthProvider";
 import { BiSolidUser } from "react-icons/bi";
 
 const Navbar = () => {
-    const { user } = useContext(AuthContext);
+    const { user, logOut } = useContext(AuthContext);
     console.log("Nav:", user);
     const navBarLinks = <>
         <li> <Link href="/">Home</Link> </li>
@@ -33,9 +33,12 @@ const Navbar = () => {
         {
             user?.email && <li><Link href="/adminDashboard">A-Dashboard</Link></li>
         }
-
-
     </>
+
+
+    const handleSignOut = () => {
+        logOut();
+    }
 
     return (
         <div className="w-full my-container sticky top-0 z-10 bg-white">
@@ -76,6 +79,9 @@ const Navbar = () => {
                         </>
                             :
                             <><Link href="/signin">Sign In</Link></>
+                    }
+                    {
+                        user && <button onClick={handleSignOut}>Sign Out</button>
                     }
                 </div>
             </div>

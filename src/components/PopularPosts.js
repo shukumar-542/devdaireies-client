@@ -6,11 +6,13 @@ import SectionTitle from './SectionTitle';
 
 const PopularPosts = () => {
 
+
     const [popularPostsOfPython, setPopularPostsOfPython] = useState([]);
     const [popularPostsOfGo, setPopularPostsOfGo] = useState([]);
     const [popularPostsOfPHP, setPopularPostsOfPHP] = useState([]);
     const [popularPostsOfJS, setPopularPostsOfJS] = useState([]);
     const [popularPosts, setPopularPosts] = useState([]);
+
     useEffect(() => {
         const fetchPopularBlogs = async () => {
             try {
