@@ -5,8 +5,8 @@ import img3 from '../../../public/blogImages/es6.webp'
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import Loading from '../shared/LoadingPage/Loading';
 import Link from 'next/link';
+import Spinner from '@/components/Spinner/Spinner';
 const RecentSlider = () => {
     const [recentPosts, setRecentPosts] = useState([]);
     useEffect(() => {
@@ -23,7 +23,7 @@ const RecentSlider = () => {
     }, []);
     console.log(recentPosts);
     if (recentPosts.length === 0) {
-        return <Loading></Loading> // You can show a loading indicator while fetching the data
+        return <Spinner></Spinner> // You can show a loading indicator while fetching the data
     }
     // console.log("recent posts", recentPosts);
 
@@ -35,10 +35,10 @@ const RecentSlider = () => {
                     <Link href={`allBlogs/${recentPosts[0]?._id}`}>
                         <div data-aos="zoom-in" className="h-full overflow-hidden">
                             <div className="relative group h-full hover:scale-110 transition duration-500 cursor-pointer object-cover">
-                                <img src={recentPosts[0].image} alt="Image 1" className="w-full h-full" />
+                                <img src={recentPosts[0]?.image} alt="Image 1" className="w-full h-full" />
                                 <div className="absolute inset-0 bg-black bg-opacity-80 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                                     <p className="text-orange lg:text-4xl font-bold text-center transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 text-white">
-                                        {recentPosts[0].title}
+                                        {recentPosts[0]?.title}
                                     </p>
                                 </div>
                             </div>
@@ -48,26 +48,26 @@ const RecentSlider = () => {
                 <div className="col-span-4">
                     <div className="">
                         {/* 2nd image */}
-                        <Link href={`allBlogs/${recentPosts[1]._id}`}>
+                        <Link href={`allBlogs/${recentPosts[1]?._id}`}>
                             <div data-aos="zoom-in" className="mb-[28px]  overflow-hidden">
                                 <div className="relative group hover:scale-110 transition duration-500 cursor-pointer object-cover">
-                                    <img src={recentPosts[1].image} alt="Image 1" className="w-full" />
+                                    <img src={recentPosts[1]?.image} alt="Image 1" className="w-full" />
                                     <div className="absolute inset-0 bg-black bg-opacity-80 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                                         <p className="text-orange lg:text-xl px-2 font-bold text-center transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 text-white">
-                                            {recentPosts[1].title}
+                                            {recentPosts[1]?.title}
                                         </p>
                                     </div>
                                 </div>
                             </div>
                         </Link>
                         {/* 3rd image */}
-                        <Link href={`allBlogs/${recentPosts[2]._id}`}>
+                        <Link href={`allBlogs/${recentPosts[2]?._id}`}>
                             <div className='overflow-hidden '>
                                 <div className="relative group hover:scale-110 transition duration-500 cursor-pointer object-cover ">
-                                    <img src={recentPosts[2].image} alt="Image 1" className="w-full " />
+                                    <img src={recentPosts[2]?.image} alt="Image 1" className="w-full " />
                                     <div className="absolute inset-0 bg-black bg-opacity-80 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                                         <p className="text-orange lg:text-xl px-2 font-bold text-center transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 text-white">
-                                            {recentPosts[2].title}
+                                            {recentPosts[2]?.title}
                                         </p>
                                     </div>
                                 </div>

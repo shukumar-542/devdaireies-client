@@ -57,7 +57,7 @@ const page = () => {
     return (
         <>
             {/* Search */}
-            <div className="flex flex-col pt-5 justify-center sticky top-14 z-20 items-center ">
+            <div className="flex flex-col pt-5 justify-center  items-center ">
                 <div className=" w-1/2 mx-auto">
                     <div className=" border rounded-xl overflow-hidden flex items-center bg-white gap-1">
                         <FiSearch className='ps-2 text-3xl'></FiSearch>
