@@ -3,6 +3,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import SinglePopularPosts from './SinglePopularPost';
 import SectionTitle from './SectionTitle';
+import DigitalReading from '@/app/home/DigitalReading';
 
 const PopularPosts = () => {
 
@@ -101,6 +102,7 @@ const PopularPosts = () => {
                     }
                 </div>
             </div>
+            <DigitalReading />
             <div>
                 <SectionTitle
                     heading={"popular javascript posts"}

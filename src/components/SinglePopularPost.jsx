@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
+import { FaUserEdit, FaThumbsUp, FaRegCalendarAlt, FaAngleDoubleRight } from "react-icons/fa";
 
 const SinglePopularPosts = ({ post }) => {
     // console.log("posts", post);
@@ -16,13 +17,16 @@ const SinglePopularPosts = ({ post }) => {
                 <div className=''>
                     <h2 className='text-[22px] font-bold my-3'>{title.slice(0, 50)}...</h2>
                     <p className=''>{description.slice(0, 70)}...</p>
-                    <Link href={`allBlogs/${_id}`}>
-                        <button className='btn'>read more</button>
-                    </Link>
+                    <div className='flex justify-between cursor-pointer mt-3'>
+                        <Link href={`allBlogs/${_id}`}>
+                            <button className='flex items-center font-bold border-b border-transparent hover:border-purple'>read more <FaAngleDoubleRight className='text-purple mt-1 ms-2' /></button>
+                        </Link>
+                        <p className='text-lg font-semibold flex items-center'><FaThumbsUp className='text-deepOrange me-2' /> {likes}</p>
+                    </div>
                     <div className='divider p-0 mb-2'></div>
                     <div className='flex justify-between '>
-                        <p>{author}</p>
-                        <p>{date}</p>
+                        <p className='flex items-center'><FaUserEdit className='text-xl text-purple me-2' /> {author}</p>
+                        <p className='flex items-center'><FaRegCalendarAlt className='text-xl text-purple me-2' /> {date}</p>
                     </div>
                 </div>
             </div>
