@@ -6,7 +6,7 @@ import { FaSearch } from 'react-icons/fa';
 import { FaThumbsUp } from "react-icons/fa";
 import { FiSearch } from "react-icons/fi";
 import Link from 'next/link';
-const page = () => {
+const Page = () => {
     const [allBlogs, setAllBlogs] = useState([]);
     const [searchText, setSearchText] = useState("");
     const [result, setResult] = useState([])
@@ -16,7 +16,7 @@ const page = () => {
     useEffect(() => {
         const fetchRecentBlogs = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/blog/approved');
+                const response = await axios.get('https://devdaireies-server-shiningsudipto.vercel.app/blog/approved');
                 const fetchedData = response.data;
                 setAllBlogs(fetchedData);
             } catch (error) {
@@ -29,14 +29,14 @@ const page = () => {
     // handle search blog
     const handleSearch = () => {
         setDropdownVisible(false);
-        fetch(`http://localhost:5000/find/${searchText}`)
+        fetch(`https://devdaireies-server-shiningsudipto.vercel.app/find/${searchText}`)
             .then((res) => res.json())
             .then((data) => {
                 setAllBlogs(data);
             });
     }
     const fetchData = (value) => {
-        fetch('http://localhost:5000/blogs')
+        fetch('https://devdaireies-server-shiningsudipto.vercel.app/blogs')
             .then(res => res.json())
             .then(data => {
                 const result = data.filter((blogs) => {
@@ -110,4 +110,4 @@ const page = () => {
     );
 };
 
-export default page;
+export default Page;

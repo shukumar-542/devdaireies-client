@@ -3,7 +3,7 @@ import { denyBlogStatus, updateBlogStatus } from "@/hooks/blogApi";
 import useBlogs from "@/hooks/useAllBLogs";
 import { FaAngleDoubleRight } from "react-icons/fa";
 
-const page = () => {
+const Page = () => {
     const { allBlogs, refetchBlogs, loading } = useBlogs();
 
     const handleApproved = (id) => {
@@ -68,4 +68,4 @@ const page = () => {
     );
 };
 
-export default page;
+export default Page;

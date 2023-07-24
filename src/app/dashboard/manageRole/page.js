@@ -4,7 +4,7 @@ import { makeROleAdmin } from "@/hooks/blogApi";
 import useUsers from "@/hooks/useUsers";
 import Image from "next/image";
 
-const page = () => {
+const Page = () => {
     const { allUsers, refetchUsers } = useUsers();
     console.log("users", allUsers);
     const handleUserRole = (id) => {
@@ -43,4 +43,4 @@ const page = () => {
     );
 };
 
-export default page;
+export default Page;

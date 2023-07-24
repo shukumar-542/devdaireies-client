@@ -9,7 +9,7 @@ const DigitalReading = () => {
                         <h2 className="mb-5 text-3xl font-bold">Digital Reading</h2>
                         <h2 className="mb-5 text-5xl font-bold text-lightOrange">DevDiaries</h2>
                         <p className="mb-5 w-1/2 text-lg">
-                            "Immerse yourself in the world of digital reading at DevDiaries, where captivating articles and engaging stories await to enrich your online journey."</p>
+                            Immerse yourself in the world of digital reading at DevDiaries, where captivating articles and engaging stories await to enrich your online journey</p>
                     </div>
                 </div>
             </div>

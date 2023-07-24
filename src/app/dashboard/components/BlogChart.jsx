@@ -25,7 +25,7 @@ const BlogChart = () => {
     useEffect(() => {
         const fetchPopularBlogs = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/blog/approved');
+                const response = await axios.get('https://devdaireies-server-shiningsudipto.vercel.app/blog/approved');
                 const fetchedData = response.data;
                 setTotalBlog(fetchedData);
             } catch (error) {
@@ -37,7 +37,7 @@ const BlogChart = () => {
     useEffect(() => {
         const fetchPopularBlogs = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/blogs/javascript');
+                const response = await axios.get('https://devdaireies-server-shiningsudipto.vercel.app/blogs/javascript');
                 const fetchedData = response.data;
                 setPopularPostsOfJS(fetchedData);
             } catch (error) {
@@ -50,7 +50,7 @@ const BlogChart = () => {
     useEffect(() => {
         const fetchPopularBlogs = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/blogs/php');
+                const response = await axios.get('https://devdaireies-server-shiningsudipto.vercel.app/blogs/php');
                 const fetchedData = response.data;
                 setPopularPostsOfPHP(fetchedData);
             } catch (error) {
@@ -63,7 +63,7 @@ const BlogChart = () => {
     useEffect(() => {
         const fetchPopularBlogs = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/blogs/go');
+                const response = await axios.get('https://devdaireies-server-shiningsudipto.vercel.app/blogs/go');
                 const fetchedData = response.data;
                 setPopularPostsOfGo(fetchedData);
             } catch (error) {
@@ -76,7 +76,7 @@ const BlogChart = () => {
     useEffect(() => {
         const fetchPopularBlogs = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/blogs/python');
+                const response = await axios.get('https://devdaireies-server-shiningsudipto.vercel.app/blogs/python');
                 const fetchedData = response.data;
                 setPopularPostsOfPython(fetchedData);
             } catch (error) {

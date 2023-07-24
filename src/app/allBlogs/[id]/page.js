@@ -20,7 +20,7 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "@/Context/AuthProvider";
 import Comment from "@/components/Comment/Comment";
 
-const page = ({ params }) => {
+const Page = ({ params }) => {
     const { user } = useContext(AuthContext);
     // console.log(user?.displayName, user?.photoURL);
     // console.log(params.id);
@@ -33,15 +33,15 @@ const page = ({ params }) => {
 
 
     // console.log(comment);
-    const url = `http://localhost:5000/blogs/${id}`
+    const url = `https://devdaireies-server-shiningsudipto.vercel.app/blogs/${id}`
 
     useEffect(() => {
-        const url = `http://localhost:5000/blogs/${id}`;
+        const url = `https://devdaireies-server-shiningsudipto.vercel.app/blogs/${id}`;
         fetch(url).then(res => res.json()).then(data => setData(data))
     }, [id])
 
     useEffect(() => {
-        fetch(`http://localhost:5000/comment/${id}`)
+        fetch(`https://devdaireies-server-shiningsudipto.vercel.app/comment/${id}`)
             .then(res => res.json())
             .then(data => setComment(data))
     }, [id])
@@ -56,7 +56,7 @@ const page = ({ params }) => {
              displayName : user?.displayName, 
              photoURL : user?.photoURL 
             }
-        fetch(`http://localhost:5000/comment`, {
+        fetch(`https://devdaireies-server-shiningsudipto.vercel.app/comment`, {
             method: 'post',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(newComment)
@@ -66,7 +66,7 @@ const page = ({ params }) => {
             .then(data => {
 
                 if (data.acknowledged) {
-                    fetch(`http://localhost:5000/comment/${id}`)
+                    fetch(`https://devdaireies-server-shiningsudipto.vercel.app/comment/${id}`)
                         .then(res => res.json())
                         .then(data => setComment(data))
                 }
@@ -174,4 +174,4 @@ const page = ({ params }) => {
     );
 };
 
-export default page;
+export default Page;

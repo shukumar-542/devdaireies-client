@@ -10,7 +10,7 @@ const useUsers = () => {
 
     const fetchAllUsers = useCallback(async () => {
         try {
-            const response = await axios.get('http://localhost:5000/users');
+            const response = await axios.get('https://devdaireies-server-shiningsudipto.vercel.app/users');
             const fetchedData = response.data;
             setAllUsers(fetchedData);
             setLoading(false);
