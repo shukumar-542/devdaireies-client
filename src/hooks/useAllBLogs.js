@@ -10,7 +10,7 @@ const useBlogs = () => {
 
     const fetchAllBlogs = useCallback(async () => {
         try {
-            const response = await axios.get('http://localhost:5000/blogs');
+            const response = await axios.get('https://devdaireies-server-shiningsudipto.vercel.app/blogs');
             const fetchedData = response.data;
             setAllBlogs(fetchedData);
             setLoading(false);

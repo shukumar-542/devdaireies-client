@@ -52,7 +52,7 @@ const page = () => {
           image: data.photo
         }
 
-        fetch(`http://localhost:5000/users/${user?.email}`, {
+        fetch(`https://devdaireies-server-shiningsudipto.vercel.app/users/${user?.email}`, {
           method: 'PUT',
           headers: { 'content-type': 'application/json' },
           body: JSON.stringify(useUserDb)

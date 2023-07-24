@@ -6,10 +6,10 @@ import BlogChart from "./components/BlogChart";
 import AnalyticsChart from "./components/AnalyticsChart";
 import { FaUserAlt, FaReadme } from "react-icons/fa";
 
-const page = () => {
+const Page = () => {
     const { allBlogs } = useBlogs();
     const { allUsers } = useUsers();
-    console.log("from admin", allBlogs, "users:", allUsers);
+    // console.log("from admin", allBlogs, "users:", allUsers);
     return (
         <div className="w-full bg-slate-100 rounded-md p-4">
             <div className=" flex gap-4">
@@ -24,4 +24,4 @@ const page = () => {
     );
 };
 
-export default page;
+export default Page;

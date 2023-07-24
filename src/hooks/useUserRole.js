@@ -11,7 +11,7 @@ const useUserRole = () => {
     useEffect(() => {
         const fetchUserDetails = async () => {
             try {
-                const response = await axios.get(`http://localhost:5000/users/${user?.email}`);
+                const response = await axios.get(`https://devdaireies-server-shiningsudipto.vercel.app/users/${user?.email}`);
                 const fetchedData = response.data;
                 setUserDetails(fetchedData);
                 setLoading(false);

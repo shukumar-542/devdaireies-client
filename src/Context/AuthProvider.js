@@ -26,7 +26,7 @@ function AuthProvider({ children }) {
     // useEffect(() => {
     //     const fetchPopularBlogs = async () => {
     //         try {
-    //             const response = await axios.get('http://localhost:5000/blogs/python');
+    //             const response = await axios.get('https://devdaireies-server-shiningsudipto.vercel.app/blogs/python');
     //             const fetchedData = response.data;
     //             const slicedData = fetchedData.slice(0, 3);
     //             setPopularPostsOfPython(slicedData);
