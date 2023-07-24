@@ -4,7 +4,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 
-const page = () => {
+const Page = () => {
 
     const { user } = useAuth();
     console.log(user);
@@ -32,7 +32,7 @@ const page = () => {
                     console.log(newItem);
                     // TODO
                     // posting url need to set
-                    axios.post('http://localhost:5000/blog', newItem)
+                    axios.post('https://devdaireies-server-shiningsudipto.vercel.app/blog', newItem)
                         .then(data => {
                             console.log('posted to the database', data.data);
                             if (data.data.insertedId) {
@@ -158,4 +158,4 @@ const page = () => {
     );
 };
 
-export default page;
+export default Page;

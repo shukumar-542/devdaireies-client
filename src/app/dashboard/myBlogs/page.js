@@ -3,13 +3,13 @@ import { useEffect, useState } from "react";
 import MySingleBlog from "../components/MySingleBlog";
 import useAuth from "@/hooks/useAuth";
 
-const page = () => {
+const Page = () => {
     const { user } = useAuth();
     console.log(user?.email);
     const [allBlogs, setAllBlogs] = useState([]);
     useEffect(() => {
 
-        fetch(`http://localhost:5000/blog/${user?.email}`)
+        fetch(`https://devdaireies-server-shiningsudipto.vercel.app/blog/${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 console.log(data);
@@ -34,4 +34,4 @@ const page = () => {
     );
 };
 
-export default page;
+export default Page;
