@@ -7,12 +7,20 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        title: ['Inter', 'sans-serif']
+      },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
+      colors: {
+        purple: '#5D38E0',
+        deepOrange: '#F5680E',
+        lightOrange: '#F59600'
+      },
     },
   },
-  plugins: [],
+  plugins: [require("daisyui")],
 }

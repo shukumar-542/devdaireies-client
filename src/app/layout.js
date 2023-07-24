@@ -1,5 +1,8 @@
-import './globals.css'
+import AuthProvider from '@/Context/AuthProvider'
 import { Inter } from 'next/font/google'
+import './globals.css'
+import Navbar from './shared/Navbar/Navbar'
+import Footer from './shared/Footer'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -9,9 +12,20 @@ export const metadata = {
 }
 
 export default function RootLayout({ children }) {
+
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="en" data-theme="light">
+
+      <AuthProvider >
+        <body className={inter.className}>
+          <div className=''>
+            <Navbar />
+            {children}
+            <Footer />
+          </div>
+        </body>
+      </AuthProvider>
+
     </html>
   )
 }
