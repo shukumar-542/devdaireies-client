@@ -2,6 +2,7 @@
 import useUserRole from "@/hooks/useUserRole";
 import Link from "next/link";
 
+
 const Navbar = () => {
     const { role } = useUserRole();
     return (
@@ -20,6 +21,9 @@ const Navbar = () => {
                         {
                             role === "admin" &&
                             <>
+                                <li>
+                                    <Link href="/dashboard">Dashboard</Link>
+                                </li>
                                 <li>
                                     <Link href="/dashboard/manageBlogs">Manage Blogs</Link>
                                 </li>
