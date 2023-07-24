@@ -48,7 +48,7 @@ const page = () => {
                                                         }
                                                     </button>
                                                     <button onClick={() => handleDeny(_id)}
-                                                        disabled={status == "deny" || "approved"}
+                                                        disabled={status == "deny" || status == "approved"}
                                                         className="bg-slate-200 btn text-purple font-bold text-lg  rounded-md hover:bg-purple hover:text-white">
                                                         {
                                                             status == "deny" ? "Denied" : "Deny"

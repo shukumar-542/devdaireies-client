@@ -7,11 +7,16 @@ import UseAuth from "@/hooks/useAuth";
 import { useContext } from "react";
 import { AuthContext } from "@/Context/AuthProvider";
 import { BiSolidUser } from "react-icons/bi";
-import { FaSignInAlt,FaSignOutAlt } from "react-icons/fa";
+import { FaSignInAlt, FaSignOutAlt } from "react-icons/fa";
+import useUserRole from "@/hooks/useUserRole";
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
     console.log("Nav:", user);
+
+    const { role } = useUserRole();
+    console.log(role);
+
     const navBarLinks = <>
         <li> <Link href="/">Home</Link> </li>
         <li> <Link href="/allBlogs">All Blogs</Link></li>
@@ -29,10 +34,13 @@ const Navbar = () => {
         </li>
         <li> <Link href="/about">About Us</Link></li>
         {
-            user?.email && <li><Link href="/userDashboard/myBlogs">Dashboard</Link></li>
-        }
-        {
-            user?.email && <li><Link href="/adminDashboard">A-Dashboard</Link></li>
+            role == "admin" ?
+                (<li><Link href="/dashboard">Dashboard</Link></li>)
+                :
+                role == "user" ?
+                    (<li><Link href="/dashboard/myBlogs">Dashboard</Link></li>)
+                    :
+                    ""
         }
     </>
 
