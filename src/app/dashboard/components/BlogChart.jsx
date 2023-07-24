@@ -1,5 +1,7 @@
 'use client'
 import useAuth from "@/hooks/useAuth";
+import axios from "axios";
+import { useEffect, useState } from "react";
 import {
     BarChart,
     Bar,
@@ -10,19 +12,99 @@ import {
     Legend
 } from "recharts";
 
-const data = [
-    {
-        name: "Category",
-        javascript: 4000,
-        python: 2800,
-        php: 2400,
-        go: 2000
-    },
-];
 const BlogChart = () => {
 
-    const { popularPostsOfPython } = useAuth();
-    console.log("chart", popularPostsOfPython);
+
+
+    const [popularPostsOfPython, setPopularPostsOfPython] = useState([]);
+    const [popularPostsOfGo, setPopularPostsOfGo] = useState([]);
+    const [popularPostsOfPHP, setPopularPostsOfPHP] = useState([]);
+    const [popularPostsOfJS, setPopularPostsOfJS] = useState([]);
+    const [totalBlog, setTotalBlog] = useState([]);
+
+    useEffect(() => {
+        const fetchPopularBlogs = async () => {
+            try {
+                const response = await axios.get('http://localhost:5000/blog/approved');
+                const fetchedData = response.data;
+                setTotalBlog(fetchedData);
+            } catch (error) {
+                console.error('Error fetching popular blogs:', error);
+            }
+        };
+        fetchPopularBlogs();
+    }, []);
+    useEffect(() => {
+        const fetchPopularBlogs = async () => {
+            try {
+                const response = await axios.get('http://localhost:5000/blogs/javascript');
+                const fetchedData = response.data;
+                setPopularPostsOfJS(fetchedData);
+            } catch (error) {
+                console.error('Error fetching popular blogs:', error);
+            }
+        };
+
+        fetchPopularBlogs();
+    }, []);
+    useEffect(() => {
+        const fetchPopularBlogs = async () => {
+            try {
+                const response = await axios.get('http://localhost:5000/blogs/php');
+                const fetchedData = response.data;
+                setPopularPostsOfPHP(fetchedData);
+            } catch (error) {
+                console.error('Error fetching popular blogs:', error);
+            }
+        };
+
+        fetchPopularBlogs();
+    }, []);
+    useEffect(() => {
+        const fetchPopularBlogs = async () => {
+            try {
+                const response = await axios.get('http://localhost:5000/blogs/go');
+                const fetchedData = response.data;
+                setPopularPostsOfGo(fetchedData);
+            } catch (error) {
+                console.error('Error fetching popular blogs:', error);
+            }
+        };
+
+        fetchPopularBlogs();
+    }, []);
+    useEffect(() => {
+        const fetchPopularBlogs = async () => {
+            try {
+                const response = await axios.get('http://localhost:5000/blogs/python');
+                const fetchedData = response.data;
+                setPopularPostsOfPython(fetchedData);
+            } catch (error) {
+                console.error('Error fetching popular blogs:', error);
+            }
+        };
+
+        fetchPopularBlogs();
+    }, []);
+
+    const jsBlogCount = popularPostsOfJS.length;
+    const pythonBlogCount = popularPostsOfPython.length;
+    const phpBlogCount = popularPostsOfPHP.length;
+    const goBlogCount = popularPostsOfGo.length;
+    const blogCount = totalBlog.length;
+
+    console.log(jsBlogCount, pythonBlogCount, phpBlogCount, goBlogCount, blogCount);
+
+    const data = [
+        {
+            name: "Category",
+            javascript: `${jsBlogCount}`,
+            python: `${pythonBlogCount}`,
+            php: `${phpBlogCount}`,
+            go: `${goBlogCount}`,
+            totalBlog: `${blogCount}`
+        },
+    ];
 
     return (
         <div className="mt-10">
@@ -42,10 +124,11 @@ const BlogChart = () => {
                 <YAxis />
                 <Tooltip />
                 <Legend />
-                <Bar dataKey="javascript" fill="#8884d8" />
-                <Bar dataKey="python" fill="#82ca9d" />
-                <Bar dataKey="php" fill="#82ca9d" />
-                <Bar dataKey="go" fill="#82ca9d" />
+                <Bar dataKey="javascript" fill="#EFD81D" />
+                <Bar dataKey="python" fill="#366C9C" />
+                <Bar dataKey="php" fill="#4D588E" />
+                <Bar dataKey="go" fill="#70C8D6" />
+                {/* <Bar dataKey="totalBlog" fill="#82ca9d" /> */}
             </BarChart>
         </div>
     );
