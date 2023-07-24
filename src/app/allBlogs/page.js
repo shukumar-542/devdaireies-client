@@ -16,7 +16,7 @@ const page = () => {
     useEffect(() => {
         const fetchRecentBlogs = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/blogs');
+                const response = await axios.get('http://localhost:5000/blog/approved');
                 const fetchedData = response.data;
                 setAllBlogs(fetchedData);
             } catch (error) {
@@ -29,7 +29,7 @@ const page = () => {
     // handle search blog
     const handleSearch = () => {
         setDropdownVisible(false);
-        fetch(`http://localhost:5000/blog/${searchText}`)
+        fetch(`http://localhost:5000/find/${searchText}`)
             .then((res) => res.json())
             .then((data) => {
                 setAllBlogs(data);

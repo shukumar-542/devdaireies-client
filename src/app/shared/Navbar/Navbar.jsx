@@ -7,6 +7,7 @@ import UseAuth from "@/hooks/useAuth";
 import { useContext } from "react";
 import { AuthContext } from "@/Context/AuthProvider";
 import { BiSolidUser } from "react-icons/bi";
+import { FaSignInAlt,FaSignOutAlt } from "react-icons/fa";
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
@@ -67,7 +68,7 @@ const Navbar = () => {
                         user ? <>
                             {
                                 user.photoURL ? <div className="avatar online ms-4">
-                                    <div className="w-16 rounded-full">
+                                    <div className="w-10 rounded-full">
                                         <Image src={user?.photoURL} className="" alt="" height={60} width={60} />
                                     </div>
                                 </div>
@@ -78,10 +79,10 @@ const Navbar = () => {
                             }
                         </>
                             :
-                            <><Link href="/signin">Sign In</Link></>
+                            <div className="hover:bg-gray-300 px-3 py-2 rounded-md "><Link href="/signin"><FaSignInAlt className="text-2xl text-[#5B54A3]"></FaSignInAlt></Link></div>
                     }
                     {
-                        user && <button onClick={handleSignOut}>Sign Out</button>
+                        user && <button onClick={handleSignOut} className="hover:bg-gray-300 px-3 py-2 ms-2 rounded-md "><FaSignOutAlt className="text-2xl text-[#5B54A3]"></FaSignOutAlt></button>
                     }
                 </div>
             </div>

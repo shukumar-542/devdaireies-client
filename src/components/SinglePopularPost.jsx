@@ -7,9 +7,9 @@ const SinglePopularPosts = ({ post }) => {
     const { author, category, date, description, image, likes, subcategory, title, _id } = post;
     return (
         <div>
-            <div className='shadow-xl rounded-xl hover:shadow-2xl p-4'>
-                <div className='relative'>
-                    <Image className='postsImg rounded-md h-[200px]' src={image} alt="" width={400} height={400} />
+            <div className='shadow-xl rounded-xl hover:shadow-2xl p-4  '>
+                <div className='relative overflow-hidden'>
+                    <Image className='postsImg rounded-md h-[200px] hover:scale-110 transition duration-500 cursor-pointer object-cover' src={image} alt="" width={400} height={400} />
                     <p className='absolute top-0 text-white px-2 py-1 rounded-md bg-slate-700 bg-opacity-60 border border-slate-900'>{category}</p>
                     <p className='absolute right-0 bottom-0 text-white px-2 py-1 rounded-xl bg-slate-700 bg-opacity-60 border border-slate-900'>{subcategory}</p>
                 </div>

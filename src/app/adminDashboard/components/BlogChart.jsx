@@ -25,7 +25,7 @@ const BlogChart = () => {
     console.log("chart", popularPostsOfPython);
 
     return (
-        <div>
+        <div className="mt-10">
             <BarChart
                 width={500}
                 height={300}

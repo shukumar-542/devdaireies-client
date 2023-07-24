@@ -8,7 +8,6 @@ const Loading = () => {
         <span className="loading loading-bars bg-red-400 loading-sm"></span>
         <span className="loading loading-bars bg-pink-500 loading-md"></span>
         <span className="loading loading-bars bg-pink-800 loading-lg"></span>
-        <span className="loading loading-dots bg-pink-900 loading-lg"></span>
       </div>
     </div>
   );
