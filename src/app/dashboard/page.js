@@ -3,6 +3,8 @@
 import useBlogs from "@/hooks/useAllBLogs";
 import useUsers from "@/hooks/useUsers";
 import BlogChart from "./components/BlogChart";
+import AnalyticsChart from "./components/AnalyticsChart";
+import { FaUserAlt, FaReadme } from "react-icons/fa";
 
 const page = () => {
     const { allBlogs } = useBlogs();
@@ -10,12 +12,13 @@ const page = () => {
     console.log("from admin", allBlogs, "users:", allUsers);
     return (
         <div className="w-full bg-slate-100 rounded-md p-4">
-            <div className="flex justify-between">
-                <h2 className="font-bold text-2xl p-4 bg-slate-200 text-purple rounded-md ">Total Blogs: <span className="text-3xl">{allBlogs.length}</span> </h2>
-                <h2 className="font-bold text-2xl p-4 bg-slate-200 text-purple rounded-md ">Total Users: <span className="text-3xl">{allUsers?.length}</span> </h2>
+            <div className=" flex gap-4">
+                <h2 className="font-bold flex items-center p-4 bg-slate-200 text-purple rounded-md "><FaReadme className="me-3 text-4xl" /> <span className="text-3xl">{allBlogs.length}</span> </h2>
+                <h2 className="font-bold flex items-center p-4 bg-slate-200 text-purple rounded-md "><FaUserAlt className="me-3 text-4xl" /> <span className="text-3xl">{allUsers?.length}</span> </h2>
             </div>
-            <div>
+            <div className="flex justify-evenly mt-8">
                 <BlogChart />
+                <AnalyticsChart />
             </div>
         </div>
     );
