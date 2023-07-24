@@ -21,7 +21,7 @@ const page = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const router = useRouter()
     const onSubmit = (data) => {
-        
+
         signUserWithEmailPass(data.email, data.password)
             .then(result => {
                 const user = result.user;
@@ -65,15 +65,16 @@ const page = () => {
             .then(result => {
                 const user = result.user;
                 const currentUser = {
-                    email : user.email,
-                    name : user.displayName,
-                    image : user.photoURL
+                    email: user.email,
+                    name: user.displayName,
+                    image: user.photoURL,
+                    role: 'user'
                 }
-                fetch(`http://localhost:5000/users/${user?.email}`,{
-                    method : 'PUT',
-                    headers : {'content-type' : 'application/json'},
-                    body : JSON.stringify(currentUser)
-            
+                fetch(`http://localhost:5000/newUser`, {
+                    method: 'POST',
+                    headers: { 'content-type': 'application/json' },
+                    body: JSON.stringify(currentUser)
+
                 })
                 // console.log('single user ' ,user);
                 router.push('/')
