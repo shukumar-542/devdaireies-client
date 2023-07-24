@@ -12,7 +12,7 @@ const RecentSlider = () => {
     useEffect(() => {
         const fetchRecentBlogs = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/date');
+                const response = await axios.get('https://devdaireies-server-shiningsudipto.vercel.app/date');
                 const fetchedData = response.data;
                 setRecentPosts(fetchedData);
             } catch (error) {

@@ -4,12 +4,12 @@ import SubCategory from '@/components/SubCategory';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 
-const page = () => {
+const Page = () => {
     const [allPosts, setAllPosts] = useState([]);
     useEffect(() => {
         const fetchPopularBlogs = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/blogs/javascript');
+                const response = await axios.get('https://devdaireies-server-shiningsudipto.vercel.app/blogs/javascript');
                 const fetchedData = response.data;
                 setAllPosts(fetchedData);
             } catch (error) {
@@ -40,4 +40,4 @@ const page = () => {
     );
 };
 
-export default page;
+export default Page;

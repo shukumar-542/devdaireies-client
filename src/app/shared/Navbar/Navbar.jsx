@@ -12,10 +12,10 @@ import useUserRole from "@/hooks/useUserRole";
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
-    console.log("Nav:", user);
+    // console.log("Nav:", user);
 
     const { role } = useUserRole();
-    console.log(role);
+    // console.log(role);
 
     const navBarLinks = <>
         <li> <Link href="/">Home</Link> </li>

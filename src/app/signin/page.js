@@ -70,7 +70,7 @@ const page = () => {
                     image: user.photoURL,
                     role: 'user'
                 }
-                fetch(`http://localhost:5000/newUser`, {
+                fetch(`https://devdaireies-server-shiningsudipto.vercel.app/newUser`, {
                     method: 'POST',
                     headers: { 'content-type': 'application/json' },
                     body: JSON.stringify(currentUser)
